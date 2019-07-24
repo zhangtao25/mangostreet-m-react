@@ -1,6 +1,9 @@
 // src/components/Hello.tsx
 
 import * as React from 'react';
+// babel-plugin-import 会帮助你加载 JS 和 CSS
+import { Button } from 'antd-mobile';
+
 export interface Props {
     name: string;
     enthusiasmLevel?: number;
@@ -19,6 +22,7 @@ class Hello extends React.Component<Props, object> {
                 <div className="greeting">
                     Hello {name + getExclamationMarks(enthusiasmLevel)}
                 </div>
+                <Button>按钮</Button>
             </div>
         );
     }
