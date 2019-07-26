@@ -3,6 +3,7 @@
 import * as React from 'react';
 // babel-plugin-import 会帮助你加载 JS 和 CSS
 import { Button } from 'antd-mobile';
+import AppTabBar from './../layouts/AppTabBar'
 
 export interface Props {
     name: string;
@@ -23,6 +24,7 @@ class Hello extends React.Component<Props, object> {
                     Hello {name + getExclamationMarks(enthusiasmLevel)}
                 </div>
                 <Button>按钮</Button>
+                <AppTabBar name={'sss'}></AppTabBar>
             </div>
         );
     }

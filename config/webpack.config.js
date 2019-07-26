@@ -38,7 +38,9 @@ const shouldInlineRuntimeChunk = process.env.INLINE_RUNTIME_CHUNK !== 'false';
 const useTypeScript = fs.existsSync(paths.appTsConfig);
 
 // style files regexes
-const cssRegex = /\.css$/;
+// const cssRegex = /\.css$/;
+
+const cssRegex = /\.(css|less)$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
@@ -80,6 +82,11 @@ module.exports = function(webpackEnv) {
         loader: require.resolve('css-loader'),
         options: cssOptions,
       },
+        {
+            loader: require.resolve('less-loader'),
+            options: {...cssOptions,javascriptEnabled: true},
+        },
+
       {
         // Options for PostCSS as we reference these options twice
         // Adds vendor prefixing based on your specified browser support in
@@ -97,6 +104,11 @@ module.exports = function(webpackEnv) {
               },
               stage: 3,
             }),
+              require('postcss-pxtorem')({
+                  rootValue : 100,
+                  selectorBlackList  : [],
+                  propList   : ['*']
+              }),
             // Adds PostCSS Normalize as the reset css with default options,
             // so that it honors browserslist config in package.json
             // which in turn let's users customize the target behavior as per their needs.
@@ -419,6 +431,18 @@ module.exports = function(webpackEnv) {
                 getLocalIdent: getCSSModuleLocalIdent,
               }),
             },
+              {
+                  test: /\.less$/,
+                  use: getStyleLoaders({
+                      importLoaders: 2,
+                      sourceMap: isEnvProduction && shouldUseSourceMap,
+                      modules: true,
+                      getLocalIdent: getCSSModuleLocalIdent,
+                  },
+                      'less-loader'
+                  ),
+                  sideEffects: true
+              },
             // Opt-in support for SASS (using .scss or .sass extensions).
             // By default we support SASS Modules with the
             // extensions .module.scss or .module.sass
