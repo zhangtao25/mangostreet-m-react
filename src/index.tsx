@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import './assets/css/init.css'
 import './assets/css/index.css';
+import './assets/css/iconfont.css';
 import './assets/less-config/antd-mobile-config.less';
 
 import App from './App';
