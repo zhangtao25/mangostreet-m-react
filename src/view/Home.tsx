@@ -9,7 +9,7 @@ export interface Props {
 }
 export interface noteData {
     [index:number]:any,
-    map(param: (item:any) => any): any;
+    map(param: (item:any,index:number) => any): any;
 }
 export interface State {
     noteData:noteData
@@ -37,9 +37,10 @@ class Home extends React.Component<Props, State> {
         return (
             <div className={'home'}>
                 我是主页
-                {this.state.noteData.map((item)=>{
+                {this.state.noteData.map((item,index)=>{
                     return(
                         <NoteCard
+                            key={index}
                             avatar={item.avatar}
                             author={item.author}
                             noteId={item.noteId}
@@ -53,10 +54,10 @@ class Home extends React.Component<Props, State> {
         );
     }
     componentDidMount(): void {
-        NoteService.getNotesBasicInfo().then(res=>{
-            console.log(res)
+        NoteService.getNotesBasicInfo().then((res:any)=>{
+            console.log(res[0])
             // console.log(res)
-            // this.setState({noteData:res})
+            this.setState({noteData:res})
         })
     }
 }
