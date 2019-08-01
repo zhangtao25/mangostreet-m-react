@@ -23,7 +23,7 @@ class AppTabBar extends React.Component<Props, State> {
   constructor(props:Props) {
     super(props);
     this.state = {
-      selectedTab: 'yellowTab',
+      selectedTab: 'blueTab',
       hidden: false,
       fullScreen: false,
     };

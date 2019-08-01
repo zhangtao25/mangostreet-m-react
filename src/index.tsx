@@ -7,10 +7,11 @@ import './assets/css/iconfont.css';
 import './assets/less-config/antd-mobile-config.less';
 
 import App from './App';
-
-
-
+import Mock from './mock'
 import * as serviceWorker from './serviceWorker';
+
+Mock.init();
+
 ReactDOM.render(<App />, document.getElementById('root'));
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
