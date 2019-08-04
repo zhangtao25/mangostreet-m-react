@@ -1,0 +1,23 @@
+.home{
+  column-count: 2;
+  column-gap: 15px;
+  padding: 0 15px;
+}
+.note-card{
+  background-color: #fefefe;
+}
+.note-card img{
+  width: 100%;
+}
+.card-bottom{
+  display: flex;
+  justify-content: space-between;
+}
+.card-bottom>div{
+  display: flex;
+  align-items: center;
+}
+.card-bottom img{
+  width: 58px;
+  border-radius: 50%;
+}

@@ -21,12 +21,23 @@ class NoteCard extends React.Component<Props, State> {
     render() {
         return (
             <div className={'note-card'}>
-                <p>{this.props.avatar}</p>
-                <p>{this.props.author}</p>
-                <p>{this.props.noteId}</p>
-                <p>{this.props.likeNum}</p>
-                <p>{this.props.noteTitle}</p>
-                <img src={this.props.noteCover} alt=""/>
+                {/*<p>{this.props.avatar}</p>*/}
+                {/*<p>{this.props.author}</p>*/}
+                {/*<p>{this.props.noteId}</p>*/}
+                {/*<p>{this.props.likeNum}</p>*/}
+                {/*<p>{this.props.noteTitle}</p>*/}
+                <img className={'note-cover'} src={this.props.noteCover} alt=""/>
+                <p className={'note-title'}>{this.props.noteTitle}</p>
+                <div className={'card-bottom'}>
+                    <div>
+                        <img src={this.props.avatar} alt=""/>
+                        <span>张温柔</span>
+                    </div>
+                    <div>
+                        <i className={'iconfont icon-love'}></i>
+                        <span>234</span>
+                    </div>
+                </div>
             </div>
         );
     }

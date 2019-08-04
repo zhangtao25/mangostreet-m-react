@@ -1,9 +1,8 @@
 
 import React from 'react';
-// import './index.css';
-import NoteCard from './Home/NoteCard'
-import NoteService from "../service/Note";
-// import any = jasmine.any;
+import './Home.css';
+import NoteCard from './../Home/NoteCard'
+import NoteService from "./../../service/Note";
 
 export interface Props {
 }
@@ -36,7 +35,7 @@ class Home extends React.Component<Props, State> {
     render() {
         return (
             <div className={'home'}>
-                我是主页
+                {/*我是主页*/}
                 {this.state.noteData.map((item,index)=>{
                     return(
                         <NoteCard
@@ -55,10 +54,9 @@ class Home extends React.Component<Props, State> {
     }
     componentDidMount(): void {
         NoteService.getNotesBasicInfo().then((res:any)=>{
-            console.log(res[0])
-            // console.log(res)
             this.setState({noteData:res})
         })
+        console.log(this.props)
     }
 }
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import './Mine.css';
-import touxiang from './../assets/images/touxiang.jpg'
+import touxiang from './../../assets/images/touxiang.jpg'
 
 export interface Props {
 }
 export interface listArr {
     [index:number]:any
-    map(param: (item:any) => any): any;
+    map(param: (item:any,index:any) => any): any;
 }
 export interface State {
     listArr: listArr
@@ -43,9 +43,9 @@ class Mine extends React.Component<Props, State> {
 
                     <div className='right'>
                         <ul>
-                            {this.state.listArr.map((item)=>{
+                            {this.state.listArr.map((item,index)=>{
                                 return (
-                                    <li>
+                                    <li key={index}>
                                         <p>{item.num}</p>
                                         <p>{item.name}</p>
                                     </li>

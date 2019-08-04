@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+// import './index.css';
 
 export interface Props {
 }
@@ -7,7 +7,7 @@ interface State {
 }
 
 
-class Msg extends React.Component<Props, State> {
+class Mall extends React.Component<Props, State> {
   constructor(props:Props) {
     super(props);
     this.state = {
@@ -16,7 +16,7 @@ class Msg extends React.Component<Props, State> {
   render() {
     return (
         <div>
-          我是消息
+          我是商场
         </div>
     );
   }
@@ -24,4 +24,4 @@ class Msg extends React.Component<Props, State> {
   }
 }
 
-export default Msg
+export default Mall

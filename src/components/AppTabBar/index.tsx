@@ -1,11 +1,11 @@
 import { TabBar } from 'antd-mobile';
 import React from 'react';
-import './index.css';
+// import '../../layouts/AppTabBar/index.css';
 
-import Home from './../../view/Home'
-import Mall from './../../view/Mall'
-import Msg from './../../view/Msg'
-import Mine from './../../view/Mine'
+import Home from '../../view/Home/Home'
+import Mall from '../../view/Mall/Mall'
+import Msg from '../../view/Msg/Msg'
+import Mine from '../../view/Mine/Mine'
 
 
 export interface Props {
@@ -31,6 +31,7 @@ class AppTabBar extends React.Component<Props, State> {
   render() {
     return (
         <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
+          {/*<p>sssss</p>*/}
           <TabBar
               unselectedTintColor="#999"
               tintColor="#333"
@@ -75,6 +76,7 @@ class AppTabBar extends React.Component<Props, State> {
             >
               <Msg></Msg>
             </TabBar.Item>
+            {/*<p>ssss</p>*/}
             <TabBar.Item
                 title="我"
                 key="我"
