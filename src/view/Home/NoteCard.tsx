@@ -42,6 +42,7 @@ class NoteCard extends React.Component<Props, State> {
         );
     }
     componentDidMount(): void {
+        console.log(this.props)
     }
 }
 

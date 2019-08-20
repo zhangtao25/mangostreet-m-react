@@ -10,7 +10,7 @@ import App from './App';
 import Mock from './mock'
 import * as serviceWorker from './serviceWorker';
 
-Mock.init();
+// Mock.init();
 
 ReactDOM.render(<App/>, document.getElementById('root'));
 // If you want your app to work offline and load faster, you can change
