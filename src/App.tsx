@@ -3,7 +3,7 @@ import React from 'react';
 import {HashRouter, Switch, Route} from 'react-router-dom'
 import AppTabBar from './layouts/AppTabBar'
 import routes from './router/router.config'
-
+import './assets/css/App.css'
 
 export interface Routei {
   path:any,
@@ -35,13 +35,14 @@ class App extends React.Component<Props,State>{
         <div className="App">
           <HashRouter>
             <AppTabBar/>
-            <Switch>
-              {routes.map((route, i) => (<RouteWithSubRoutes routes={route} key={i} {...route} />))}
-            </Switch>
+            <div className='wrap'>
+              <Switch>
+                {routes.map((route, i) => (<RouteWithSubRoutes routes={route} key={i} {...route} />))}
+              </Switch>
+            </div>
           </HashRouter>
         </div>
         )
   }
 }
-
 export default App;

@@ -1,13 +1,7 @@
-.test{
-  position: relative;
-  z-index: 1;
-}
 .home{
   column-count: 2;
   column-gap: 15px;
   padding: 0 15px;
-  /*position: fixed;*/
-  /*z-index: -1000;*/
 }
 .note-card{
   background-color: #fefefe;

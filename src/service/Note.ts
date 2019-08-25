@@ -15,6 +15,27 @@ function getNotesBasicInfo() {
     })
 }
 
+function getNotes() {
+    return new Promise((resolve, reject)=>{
+        axios.get('/api/v1/notes').then((res:any)=>{
+            resolve(res.data)
+        }).catch(res=>{
+            reject(res)
+        })
+    })
+}
+function getNote(id:any) {
+    return new Promise((resolve, reject)=>{
+        axios.get(`/api/v1/note/${id}`).then((res:any)=>{
+            resolve(res.data)
+        }).catch(res=>{
+            reject(res)
+        })
+    })
+}
+
 export default {
-    getNotesBasicInfo
+    getNotesBasicInfo,
+    getNotes,
+    getNote
 }

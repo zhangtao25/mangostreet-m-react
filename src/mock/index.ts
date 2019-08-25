@@ -6,7 +6,7 @@ function randomH(x:number,y:number) {
 }
 let arr:Array<any> = [];
 
-for (let i=0;i<3;i++){
+for (let i=0;i<15;i++){
   arr.push({
     'avatar':Mock.Random.image(`58x58)}`),
     'author':'@cname',

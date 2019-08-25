@@ -1,0 +1,25 @@
+.app-tab-bar{
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    bottom: 0;
+}
+.app-tab-bar ul{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+.app-tab-bar ul li{
+    line-height: 127px;
+    width: 210px;
+    text-align: center;
+}
+.app-tab-bar ul li:nth-child(3){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app-tab-bar ul li:nth-child(3) img{
+    height: 106px;
+    display: block;
+}
