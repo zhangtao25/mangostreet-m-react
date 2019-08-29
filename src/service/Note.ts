@@ -51,9 +51,19 @@ function getNote(id:any) {
         })
     })
 }
+function AddNote(formData:any) {
+    return new Promise((resolve, reject)=>{
+        axios.post(`/api/v1/note`,formData).then((res:any)=>{
+            resolve(res.data)
+        }).catch(res=>{
+            reject(res)
+        })
+    })
+}
 
 export default {
     getNotesBasicInfo,
     getNotes,
-    getNote
+    getNote,
+    AddNote
 }
