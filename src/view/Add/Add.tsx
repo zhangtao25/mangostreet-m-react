@@ -2,6 +2,7 @@
 import React from 'react';
 import './Add.css';
 import NoteService from './../../service/Note'
+import ImagePickerExample from './ImagePickerExample/ImagePickerExample'
 
 export interface Props {
 }
@@ -43,9 +44,8 @@ class Add extends React.Component<Props, State> {
     }
     render() {
         return (
-            <div className={'home'}>
-                <input type="file" name="file" onChange={(e)=>{this.fn(e.target.files)}} id="pic" accept="*" />
-                {/*<button onClick={()=>{this.fn()}} type="submit">提交</button>*/}
+            <div className={'add'}>
+                <ImagePickerExample></ImagePickerExample>
             </div>
         );
     }

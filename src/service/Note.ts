@@ -53,7 +53,7 @@ function getNote(id:any) {
 }
 function AddNote(formData:any) {
     return new Promise((resolve, reject)=>{
-        axios.post(`/api/v1/note`,formData).then((res:any)=>{
+        axios.post(`http://localhost:8000/notes/`,formData).then((res:any)=>{
             resolve(res.data)
         }).catch(res=>{
             reject(res)
