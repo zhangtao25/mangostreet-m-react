@@ -33,9 +33,9 @@ class ImagePickerExampleX extends React.Component<Props, State> {
   }
   onChange = (files:any, type:any, index:any) => {
     console.log(files, type, index);
-    // this.setState({
-    //   files,
-    // });
+    this.setState({
+      files,
+    });
   }
 
   uploadNotes(){
@@ -46,7 +46,7 @@ class ImagePickerExampleX extends React.Component<Props, State> {
     this.state.files.forEach((file:any)=> {
       formData.append('myfiles', file.file, file.file.name);
     })
-    formData.append('title', desc);
+    formData.append('title', title);
     formData.append('desc', desc);
     NoteService.AddNote(formData).then(res=>{
       console.log(res)
