@@ -13,7 +13,7 @@ function getIPAdress() {
     }
   }
 }
-const port = "8080"
+const port = "8000"
 const myHost = getIPAdress();
 // const myHost = "192.168.0.110";
 

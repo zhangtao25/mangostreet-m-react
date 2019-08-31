@@ -2,9 +2,7 @@ import React from 'react';
 import NoteService from './../../../service/Note'
 import './Note.css'
 import {RouteComponentProps} from 'react-router-dom'
-
 import { Carousel, WingBlank,Button } from 'antd-mobile';
-// import index from "../../../mock";
 
 export interface Propsx {
     match:any
@@ -54,11 +52,10 @@ class Note extends React.Component<Props, State> {
                                 style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
                             >
                                 <img
-                                    src={'/api/assets/notes/'+this.state.item.id+'/images/'+val+'.jpeg'}
+                                    src={'/api/static/notes/'+this.state.item.id+'/images/'+val}
                                     alt=""
                                     style={{ width: '100%', verticalAlign: 'top' }}
                                     onLoad={() => {
-                                        // fire window resize event to change height
                                         window.dispatchEvent(new Event('resize'));
                                         this.setState({ imgHeight: 'auto' });
                                     }}
@@ -73,17 +70,12 @@ class Note extends React.Component<Props, State> {
         );
     }
     componentDidMount(): void {
-        console.log(this.props,11111111111)
         let id = this.props.match.params.id
-        // this.props.local
         NoteService.getNote(id).then((res:any)=>{
-            this.setState({item:res.notes})
-            console.log(res.notes.images.split(","))
-
-            // simulate img loading
+            this.setState({item:res[0]})
             setTimeout(() => {
                 this.setState({
-                    data: res.notes.images.split(","),
+                    data: res[0].images.split(","),
                 });
             }, 100);
         })

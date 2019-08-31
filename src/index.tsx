@@ -7,7 +7,7 @@ import './assets/css/iconfont.css';
 import './assets/less-config/antd-mobile-config.less';
 
 import App from './App';
-import Mock from './mock'
+// import Mock from './mock'
 import * as serviceWorker from './serviceWorker';
 
 // Mock.init();

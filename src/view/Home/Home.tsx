@@ -53,7 +53,6 @@ class Home extends React.Component<Props, State> {
     }
 
     fn:any = (id:string)=>{
-        // console.log(this.props.hi)
         this.props.history.push(`/home/test/${id}`)
     }
 
@@ -61,7 +60,6 @@ class Home extends React.Component<Props, State> {
 
         return (
             <div className={'home'}>
-                {/*我是主页*/}
                 <div className={'test'}>
                     {this.state.noteData.map((item,index)=>{
                         return(
@@ -84,18 +82,14 @@ class Home extends React.Component<Props, State> {
                 </div>
                 <Switch>
                     <Route path="/home/test/:id" component={Note}/>
-                    {/*<Route path="/about/me" component={About}/>*/}
                 </Switch>
             </div>
         );
     }
     componentDidMount(): void {
-        // NoteService.getNotesBasicInfo().then((res:any)=>{
-        //     this.setState({noteData:res})
-        // })
         console.log(this.props)
         NoteService.getNotes().then((res:any)=>{
-            this.setState({noteData:res.notes})
+            this.setState({noteData:res})
         })
     }
 }

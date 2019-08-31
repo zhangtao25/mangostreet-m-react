@@ -1,10 +1,8 @@
-import { ImagePicker,Button,InputItem,TextareaItem,List} from 'antd-mobile';
+import { ImagePicker,Button,InputItem,TextareaItem} from 'antd-mobile';
 import React from 'react'
 import NoteService from './../../../service/Note'
-// import {noteData, State} from "../Add";
 // @ts-ignore
 import { createForm } from 'rc-form';
-import index from "../../../mock";
 
 
 export interface Props {
@@ -12,10 +10,8 @@ export interface Props {
 }
 
 export interface State {
-  // form:any
   files:any
 }
-// export interface Files
 
 
 

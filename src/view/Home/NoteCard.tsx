@@ -10,8 +10,7 @@ export interface Props {
     user_id:number
     noteId:string
     collects:string
-    images:string,
-    // onClick:React.MouseEvent
+    images:string
 }
 
 
@@ -29,7 +28,7 @@ class NoteCard extends React.Component<Props, State> {
     render() {
         return (
             <div className={'note-card'}>
-                <img className={'note-cover'} src={'/api/assets/notes/'+this.props.id+'/cover/'+this.props.cover.split(",")[0]+'.jpeg'} alt=""/>
+                <img className={'note-cover'} src={'/api/static/notes/'+this.props.id+'/cover/'+this.props.cover.split(",")[0]} alt=""/>
                 <p className={'note-title'}>{this.props.title}</p>
                 <div className={'card-bottom'}>
                     <div>

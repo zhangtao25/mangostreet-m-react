@@ -35,7 +35,8 @@ function getNotesBasicInfo() {
 
 function getNotes() {
     return new Promise((resolve, reject)=>{
-        axios.get('/api/v1/notes').then((res:any)=>{
+        axios.get('/api/notes/').then((res:any)=>{
+            console.log(res.data)
             resolve(res.data)
         }).catch(res=>{
             reject(res)
@@ -44,7 +45,7 @@ function getNotes() {
 }
 function getNote(id:any) {
     return new Promise((resolve, reject)=>{
-        axios.get(`/api/v1/note/${id}`).then((res:any)=>{
+        axios.get(`/api/notes/getnotebyid`,{params:{id:id}}).then((res:any)=>{
             resolve(res.data)
         }).catch(res=>{
             reject(res)
@@ -53,7 +54,7 @@ function getNote(id:any) {
 }
 function AddNote(formData:any) {
     return new Promise((resolve, reject)=>{
-        axios.post(`http://localhost:8000/notes/`,formData).then((res:any)=>{
+        axios.post(`/api/notes/`,formData).then((res:any)=>{
             resolve(res.data)
         }).catch(res=>{
             reject(res)
