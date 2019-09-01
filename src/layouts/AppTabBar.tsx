@@ -5,15 +5,15 @@ import addPng from './../assets/images/add.png'
 
 export interface Props {
 }
-type HomeProps = Props & RouteComponentProps;
+type RealProps = Props & RouteComponentProps;
 interface State {
   selectedTab: string;
   hidden:boolean;
   fullScreen:boolean;
 }
 
-class AppTabBar extends React.Component<HomeProps, State> {
-  constructor(props:HomeProps) {
+class AppTabBar extends React.Component<RealProps, State> {
+  constructor(props:RealProps) {
     super(props);
     this.state = {
       selectedTab: 'blueTab',
@@ -35,9 +35,6 @@ class AppTabBar extends React.Component<HomeProps, State> {
           </ul>
         </div>
     );
-  }
-  componentDidMount(): void {
-    // console.log(this.props)
   }
 }
 export default withRouter(AppTabBar as any)

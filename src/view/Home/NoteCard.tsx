@@ -1,4 +1,5 @@
 import React from 'react';
+import touxiang from './../../assets/images/notetouxiang.jpg'
 
 export interface Props {
     id:string
@@ -12,13 +13,8 @@ export interface Props {
     collects:string
     images:string
 }
-
-
-
 interface State {
 }
-
-
 class NoteCard extends React.Component<Props, State> {
     constructor(props:Props) {
         super(props);
@@ -32,19 +28,16 @@ class NoteCard extends React.Component<Props, State> {
                 <p className={'note-title'}>{this.props.title}</p>
                 <div className={'card-bottom'}>
                     <div>
-                        <img src={this.props.cover} alt=""/>
+                        <img style={{marginRight:'5px'}} src={touxiang} alt=""/>
                         <span>张温柔</span>
                     </div>
                     <div>
-                        <i className={'iconfont icon-love'}></i>
+                        <i style={{marginRight:'5px'}} className={'iconfont icon-love'}/>
                         <span>234</span>
                     </div>
                 </div>
             </div>
         );
-    }
-    componentDidMount(): void {
-        console.log(this.props)
     }
 }
 

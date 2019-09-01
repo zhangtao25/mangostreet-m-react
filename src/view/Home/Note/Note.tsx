@@ -2,17 +2,14 @@ import React from 'react';
 import NoteService from './../../../service/Note'
 import './Note.css'
 import {RouteComponentProps} from 'react-router-dom'
-import { Carousel, WingBlank,Button } from 'antd-mobile';
+import { Carousel, WingBlank,Button,Icon} from 'antd-mobile';
+import {observer, inject} from 'mobx-react';
 
 export interface Propsx {
-    match:any
+    match:any,
+    test:any
 }
 type Props = Propsx&RouteComponentProps
-
-export interface noteData {
-    [index:number]:any,
-    map(param: (item:any,index:number) => any): any;
-}
 export interface Data {
     [index:number]:any,
     map(param: (item:any,index:number) => any): any;
@@ -23,6 +20,9 @@ export interface State {
     imgHeight:any
 }
 
+// 观察者
+@inject('test')
+@observer
 class Note extends React.Component<Props, State> {
     constructor(props:Props) {
         super(props);
@@ -35,19 +35,14 @@ class Note extends React.Component<Props, State> {
     render() {
         return (
             <div className={'note'}>
-                <div>
-                    <Button style={{'width':'100px'}} onClick={()=>{this.props.history.goBack()}}>回去</Button>
-                </div>
+                <Icon style={{marginTop:'10px',marginBottom:'10px'}} type={'left'} onClick={()=>{this.props.history.goBack();this.props.test.changeIsShowHome('block');}}/>
                 <WingBlank>
                     <Carousel
                         autoplay={false}
                         infinite
-                        beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-                        afterChange={index => console.log('slide to', index)}
                     >
                         {this.state.data.map(val => (
-                            <a
-                                href={'###'}
+                            <div
                                 key={val}
                                 style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
                             >
@@ -60,16 +55,19 @@ class Note extends React.Component<Props, State> {
                                         this.setState({ imgHeight: 'auto' });
                                     }}
                                 />
-                            </a>
+                            </div>
                         ))}
                     </Carousel>
                 </WingBlank>
-                <p>{this.state.item.title}</p>
-                <p>{this.state.item.desc}</p>
+                <div className="content">
+                    <p>{this.state.item.title}</p>
+                    <p>{this.state.item.desc}</p>
+                </div>
             </div>
         );
     }
     componentDidMount(): void {
+        console.log(this.props)
         let id = this.props.match.params.id
         NoteService.getNote(id).then((res:any)=>{
             this.setState({item:res[0]})

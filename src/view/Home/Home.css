@@ -1,23 +1,28 @@
 .test{
-  position: relative;
-  z-index: 1;
-}
-.home{
   column-count: 2;
   column-gap: 15px;
-  padding: 0 15px;
-  /*position: fixed;*/
-  /*z-index: -1000;*/
+  width: 100%;
 }
+.home{
+  padding: 0 15px;
+}
+
 .note-card{
   background-color: #fefefe;
+  display:inline-block;
+  width: 100%;
+  /*column-break-inside : avoid;*/
+
 }
+
 .note-card img{
   width: 100%;
 }
+.note-title{padding: 0 10px}
 .card-bottom{
   display: flex;
   justify-content: space-between;
+  padding: 20px;
 }
 .card-bottom>div{
   display: flex;

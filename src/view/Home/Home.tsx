@@ -5,9 +5,11 @@ import NoteCard from './../Home/NoteCard'
 import Note from './Note/Note'
 import NoteService from "./../../service/Note";
 import {Route, Switch} from "react-router";
+import {observer, inject} from 'mobx-react';
 
 export interface Props {
-    history:any
+    history:any,
+    test:any
 }
 export interface noteData {
     [index:number]:any,
@@ -28,9 +30,13 @@ export interface Item {
 }
 export interface State {
     noteData:noteData,
-    item:Item
+    item:Item,
+    isRender:any
 }
 
+// 观察者
+@inject('test')
+@observer
 class Home extends React.Component<Props, State> {
     constructor(props:Props) {
         super(props);
@@ -48,22 +54,23 @@ class Home extends React.Component<Props, State> {
                 noteId:"",
                 collects:0,
                 images:"",
-            }
+            },
+            isRender:'block'
         };
     }
 
-    fn:any = (id:string)=>{
+    goDetailPage:any = (id:string)=>{
         this.props.history.push(`/home/test/${id}`)
+        this.props.test.changeIsShowHome('none')
     }
 
     render() {
-
         return (
             <div className={'home'}>
-                <div className={'test'}>
+                <div className={'test'} style={{display:this.props.test.isShowHome}}>
                     {this.state.noteData.map((item,index)=>{
                         return(
-                            <div key={index} onClick={()=>this.fn(item.id)}>
+                            <div style={{backgroundColor:'#f5f5f9',paddingTop:'5px'}} key={index} onClick={()=>this.goDetailPage(item.id)}>
                                 <NoteCard
                                     key={index}
                                     id={item.id}
@@ -81,16 +88,16 @@ class Home extends React.Component<Props, State> {
                     })}
                 </div>
                 <Switch>
-                    <Route path="/home/test/:id" component={Note}/>
+                    <Route path="/home/test/:id" {...this.props} component={Note}/>
                 </Switch>
             </div>
         );
     }
     componentDidMount(): void {
-        console.log(this.props)
         NoteService.getNotes().then((res:any)=>{
             this.setState({noteData:res})
         })
+        console.log(this.props)
     }
 }
 

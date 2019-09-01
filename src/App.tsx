@@ -23,11 +23,8 @@ function RouteWithSubRoutes(route:Routei) {
   );
 }
 
-interface State {
-}
-export interface Props {
-
-}
+interface State {}
+export interface Props {}
 
 class App extends React.Component<Props,State>{
   render() {

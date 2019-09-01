@@ -1,9 +1,15 @@
 .note{
   background-color: white;
-  position: absolute;
-  top: 0;
-  left: 0;
   min-height: 100vh;
-  z-index: 2;
   width: 100%;
+}
+.note .content{
+  padding: 40px;
+}
+.note .content p:nth-child(1){
+  font-size: 45px;
+  line-height: 90px;
+}
+.note .content p:nth-child(2){
+  font-size: 30px;
 }
