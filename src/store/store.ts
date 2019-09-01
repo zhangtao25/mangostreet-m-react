@@ -1,6 +1,6 @@
 import {observable, action} from 'mobx';
 
-class TestStore {
+class Store {
   @observable isShowHome:any;
   @observable age:any;
 
@@ -14,5 +14,5 @@ class TestStore {
     this.age = 25
   }
 }
-const test = new TestStore()
-export default test
+const store = new Store()
+export default store

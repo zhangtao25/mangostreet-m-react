@@ -15,7 +15,6 @@ function getIPAdress() {
 }
 const port = "8000"
 const myHost = getIPAdress();
-// const myHost = "192.168.0.110";
 
 module.exports = function(app) {
   app.use(

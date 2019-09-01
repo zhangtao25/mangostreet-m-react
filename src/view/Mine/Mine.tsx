@@ -25,7 +25,6 @@ class Mine extends React.Component<Props, State> {
         };
     }
     render() {
-        // let listArr = this.state.listArr
         return (
             <div>
                 <div className="mine-header">

@@ -12,16 +12,6 @@ export interface State {
     noteData:noteData
 }
 
-export interface sss {
-    noteCover:number,
-    avatar:number,
-    author:number,
-    noteId:number,
-    likeNum:number,
-    noteTitle:number
-}
-
-
 class Add extends React.Component<Props, State> {
     constructor(props:Props) {
         super(props);

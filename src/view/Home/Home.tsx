@@ -2,14 +2,14 @@
 import React from 'react';
 import './Home.css';
 import NoteCard from './../Home/NoteCard'
-import Note from './Note/Note'
+import NoteDetail from './NoteDetail/NoteDetail'
 import NoteService from "./../../service/Note";
 import {Route, Switch} from "react-router";
 import {observer, inject} from 'mobx-react';
 
 export interface Props {
     history:any,
-    test:any
+    store:any
 }
 export interface noteData {
     [index:number]:any,
@@ -35,7 +35,7 @@ export interface State {
 }
 
 // 观察者
-@inject('test')
+@inject('store')
 @observer
 class Home extends React.Component<Props, State> {
     constructor(props:Props) {
@@ -60,14 +60,14 @@ class Home extends React.Component<Props, State> {
     }
 
     goDetailPage:any = (id:string)=>{
-        this.props.history.push(`/home/test/${id}`)
-        this.props.test.changeIsShowHome('none')
+        this.props.history.push(`/home/note/${id}`)
+        this.props.store.changeIsShowHome('none')
     }
 
     render() {
         return (
             <div className={'home'}>
-                <div className={'test'} style={{display:this.props.test.isShowHome}}>
+                <div className={'test'} style={{display:this.props.store.isShowHome}}>
                     {this.state.noteData.map((item,index)=>{
                         return(
                             <div style={{backgroundColor:'#f5f5f9',paddingTop:'5px'}} key={index} onClick={()=>this.goDetailPage(item.id)}>
@@ -88,7 +88,7 @@ class Home extends React.Component<Props, State> {
                     })}
                 </div>
                 <Switch>
-                    <Route path="/home/test/:id" {...this.props} component={Note}/>
+                    <Route path="/home/note/:id" {...this.props} component={NoteDetail}/>
                 </Switch>
             </div>
         );
@@ -97,7 +97,6 @@ class Home extends React.Component<Props, State> {
         NoteService.getNotes().then((res:any)=>{
             this.setState({noteData:res})
         })
-        console.log(this.props)
     }
 }
 

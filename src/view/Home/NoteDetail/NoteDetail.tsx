@@ -1,13 +1,13 @@
 import React from 'react';
 import NoteService from './../../../service/Note'
-import './Note.css'
+import './NoteDetail.css'
 import {RouteComponentProps} from 'react-router-dom'
-import { Carousel, WingBlank,Button,Icon} from 'antd-mobile';
+import { Carousel, WingBlank,Icon} from 'antd-mobile';
 import {observer, inject} from 'mobx-react';
 
 export interface Propsx {
     match:any,
-    test:any
+    store:any
 }
 type Props = Propsx&RouteComponentProps
 export interface Data {
@@ -21,7 +21,7 @@ export interface State {
 }
 
 // 观察者
-@inject('test')
+@inject('store')
 @observer
 class Note extends React.Component<Props, State> {
     constructor(props:Props) {
@@ -35,7 +35,7 @@ class Note extends React.Component<Props, State> {
     render() {
         return (
             <div className={'note'}>
-                <Icon style={{marginTop:'10px',marginBottom:'10px'}} type={'left'} onClick={()=>{this.props.history.goBack();this.props.test.changeIsShowHome('block');}}/>
+                <Icon style={{marginTop:'10px',marginBottom:'10px'}} type={'left'} onClick={()=>{this.props.history.goBack();this.props.store.changeIsShowHome('block');}}/>
                 <WingBlank>
                     <Carousel
                         autoplay={false}
@@ -67,9 +67,8 @@ class Note extends React.Component<Props, State> {
         );
     }
     componentDidMount(): void {
-        console.log(this.props)
         let id = this.props.match.params.id
-        NoteService.getNote(id).then((res:any)=>{
+        NoteService.getNoteById(id).then((res:any)=>{
             this.setState({item:res[0]})
             setTimeout(() => {
                 this.setState({

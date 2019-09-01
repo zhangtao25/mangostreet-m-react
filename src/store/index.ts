@@ -1,7 +1,7 @@
 // 汇总store
-import test from './test'
+import store from './store'
 
 const stores = {
-  test
+  store
 }
 export default stores
