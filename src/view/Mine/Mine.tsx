@@ -1,6 +1,7 @@
 import React from 'react';
 import './Mine.css';
 import touxiang from './../../assets/images/touxiang.jpg'
+import UserService from './../../service/User'
 
 export interface Props {
 }
@@ -63,6 +64,9 @@ class Mine extends React.Component<Props, State> {
         );
     }
     componentDidMount(): void {
+        UserService.getUserInfo().then(res=>{
+            console.log(res)
+        })
     }
 }
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import {List, InputItem, WhiteSpace, Button, ImagePicker, Toast} from 'antd-mobile'
+import {List, InputItem, Button, ImagePicker, Toast} from 'antd-mobile'
 import './Auth.css';
 // @ts-ignore
 import { createForm } from 'rc-form';
-import UserService from './../../service/User'
+import AuthService from './../../service/Auth'
 
 export interface Props {
     form:any
@@ -37,8 +37,9 @@ class Auth extends React.Component<Props, State> {
     login = () =>{
         let user_account = this.props.form.getFieldValue('user_account');
         let user_password = this.props.form.getFieldValue('user_password');
-        UserService.login({user_account,user_password}).then(res=>{
+        AuthService.login({user_account,user_password}).then((res:any)=>{
             console.log(res)
+            localStorage.setItem('token',res.token)
         })
     }
     reg = () =>{
@@ -52,7 +53,7 @@ class Auth extends React.Component<Props, State> {
         formData.append('user_password', user_password);
         formData.append('v_code', v_code);
         formData.append('user_nickname', user_nickname);
-        UserService.reg(formData).then(res=>{
+        AuthService.reg(formData).then(res=>{
             console.log(res)
         })
     }

@@ -1,4 +1,12 @@
 import axios from 'axios'
+axios.interceptors.request.use(config => {
+    if (localStorage.token) {
+        config.headers['Authorization'] = localStorage.token;
+    }
+    return config
+},error =>{
+    return Promise.reject(error)
+})
 
 function getNotes() {
     return new Promise((resolve, reject)=>{
