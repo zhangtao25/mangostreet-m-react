@@ -13,8 +13,8 @@ interface State {
     authType:any
 }
 
-function loadingToast() {
-    Toast.info('头像最多上传一张图片，(づ￣3￣)づ╭❤～', 2, undefined, false);
+function loadingToast(text:any) {
+    Toast.info(text, 2, undefined, false);
 }
 const data:any=[];
 class Auth extends React.Component<Props, State> {
@@ -27,7 +27,7 @@ class Auth extends React.Component<Props, State> {
     }
     onChange = (files:any, type:any, index:any) => {
         if (files.length>1){
-            loadingToast()
+            loadingToast('最多一张')
         }else {
             this.setState({
                 files,
@@ -57,6 +57,17 @@ class Auth extends React.Component<Props, State> {
             console.log(res)
         })
     }
+    getVcode=()=>{
+        let user_account = this.props.form.getFieldValue('user_account');
+        let v_code = this.props.form.getFieldValue('v_code');
+        AuthService.getVcode({user_account,v_code}).then(res=>{
+            if (res=='no'){
+                loadingToast('邮箱已注册！')
+            } else {
+                loadingToast('验证码是：'+res)
+            }
+        })
+    }
     switchAuthType=()=>{
         this.setState({authType:this.state.authType==='login'?'reg':'login'})
     }
@@ -84,14 +95,14 @@ class Auth extends React.Component<Props, State> {
                         placeholder="请输入邮箱"
                     >邮箱</InputItem>
                     <InputItem
-                        {...getFieldProps('password')}
+                        {...getFieldProps('user_password')}
                         placeholder="请输入密码"
                     >密码</InputItem>
                     <InputItem
                         {...getFieldProps('v_code')}
                         placeholder="请输入验证码"
                     >验证码</InputItem>
-                    <Button>获取验证码</Button>
+                    <Button onClick={()=>{this.getVcode()}}>获取验证码</Button>
                     <InputItem
                         {...getFieldProps('user_nickname')}
                         placeholder="请输入昵称"
