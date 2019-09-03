@@ -25,84 +25,11 @@ class Auth extends React.Component<Props, State> {
             authType:'login'
         };
     }
-    onChange = (files:any, type:any, index:any) => {
-        if (files.length>1){
-            loadingToast()
-        }else {
-            this.setState({
-                files,
-            });
-        }
-    }
-    login = () =>{
-        let user_account = this.props.form.getFieldValue('user_account');
-        let user_password = this.props.form.getFieldValue('user_password');
-        AuthService.login({user_account,user_password}).then((res:any)=>{
-            console.log(res)
-            localStorage.setItem('token',res.token)
-        })
-    }
-    reg = () =>{
-        let user_account = this.props.form.getFieldValue('user_account');
-        let user_password = this.props.form.getFieldValue('user_password');
-        let v_code = this.props.form.getFieldValue('v_code');
-        let user_nickname = this.props.form.getFieldValue('user_nickname');
-        var formData:any = new FormData();
-        formData.append('user_img', this.state.files[0].file, this.state.files[0].file.name);
-        formData.append('user_account', user_account);
-        formData.append('user_password', user_password);
-        formData.append('v_code', v_code);
-        formData.append('user_nickname', user_nickname);
-        AuthService.reg(formData).then(res=>{
-            console.log(res)
-        })
-    }
-    switchAuthType=()=>{
-        this.setState({authType:this.state.authType==='login'?'reg':'login'})
-    }
     render() {
         const { getFieldProps } = this.props.form;
         const { files } = this.state;
         return (
-            <div>
-                <Button onClick={this.switchAuthType}>切换</Button>
-                {this.state.authType==='login'?(
-                    <List renderHeader={() => '登录'}>
-                        <InputItem
-                            {...getFieldProps('user_account')}
-                            placeholder="请输入邮箱"
-                        >邮箱</InputItem>
-                        <InputItem
-                            {...getFieldProps('user_password')}
-                            placeholder="请输入密码"
-                        >密码</InputItem>
-                        <Button onClick={()=>{this.login()}}>登录</Button>
-                    </List>
-                ):(<List renderHeader={() => '注册'}>
-                    <InputItem
-                        {...getFieldProps('user_account')}
-                        placeholder="请输入邮箱"
-                    >邮箱</InputItem>
-                    <InputItem
-                        {...getFieldProps('password')}
-                        placeholder="请输入密码"
-                    >密码</InputItem>
-                    <InputItem
-                        {...getFieldProps('v_code')}
-                        placeholder="请输入验证码"
-                    >验证码</InputItem>
-                    <Button>获取验证码</Button>
-                    <InputItem
-                        {...getFieldProps('user_nickname')}
-                        placeholder="请输入昵称"
-                    >昵称</InputItem>
-                    <ImagePicker
-                        files={files}
-                        onChange={this.onChange}
-                        onImageClick={(index, fs) => console.log(index, fs)}
-                        selectable={files.length < 2}/>
-                    <Button onClick={()=>{this.reg()}}>注册</Button>
-                </List>)}
+            <div className={'auth'}>
             </div>
         );
     }
@@ -111,4 +38,4 @@ class Auth extends React.Component<Props, State> {
 }
 
 
-export default createForm()(Auth);
+export default Auth;
