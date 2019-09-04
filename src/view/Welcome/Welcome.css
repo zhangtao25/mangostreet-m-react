@@ -1,6 +1,7 @@
 .welcome{
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  position: fixed;
 }
 
 /*bg层是窗户*/
@@ -19,20 +20,17 @@
   height: 4500px;
   overflow: hidden;
 }
-.bg .wrap div ul{
-  column-count: 2;
-  column-gap: 0;
-  width: 100%;
-}
-.bg .wrap div ul li img{
-  width: 100%;
-  display: block;
+.bg .wrap div img{
+    width: 100%;
 }
 
 @keyframes InfiniteShuffling {
   0%{
-    transform: translateY(-4500px);
+    transform: translateY(0px);
   }
+    100%{
+        transform: translateY(-4500px);
+    }
 }
 
 .container{
@@ -47,7 +45,7 @@
   align-items: center;
 }
 .container .title{
-  margin-top: 12vh;
+  /*margin-top: 12vh;*/
   font-size: 100px;
 }
 .container .desc{
