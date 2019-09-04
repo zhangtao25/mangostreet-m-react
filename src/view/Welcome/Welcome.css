@@ -13,11 +13,11 @@
 }
 /*wrap是两块相同的区域*/
 .bg .wrap{
-  animation: InfiniteShuffling 20s linear infinite;
+  animation: InfiniteShuffling 30s linear infinite;
 }
 /*wrap下有两个相同的div*/
 .bg .wrap div{
-  height: 4500px;
+  height: 7058px;
   overflow: hidden;
 }
 .bg .wrap div img{
@@ -29,7 +29,7 @@
     transform: translateY(0px);
   }
     100%{
-        transform: translateY(-4500px);
+        transform: translateY(-7058px);
     }
 }
 
@@ -44,28 +44,66 @@
   color: white;
   align-items: center;
 }
+.container>div:nth-child(1){
+  position: absolute;
+  top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container>div:nth-child(2){
+  position: absolute;
+  bottom: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .container .title{
   /*margin-top: 12vh;*/
-  font-size: 100px;
+  /*font-size: 100px;*/
+  width: 380px;
+
 }
 .container .desc{
-  font-size: 40px;
+  margin-top: 10px;
+  font-size: 45px;
+  letter-spacing: 25px;
 }
 .container .login-btn{
   /*font-size: 100px;*/
-  margin-top: 60vh;
-  width: 770px;
-  height: 106px;
+  /*margin-top: 60vh;*/
+  width: 850px;
+  height: 120px;
   color: #333;
   border-radius: 10px;
-  text-align: center;
-  line-height: 106px;
   background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .login-btn i {
+  font-size: 70px;
+  margin-right: 10px;
 }
 .container .other-btn{
-  margin-top: 5vh;
-  width: 450px;
-  font-size:40px;
+  margin-top: 80px;
+  width: 500px;
+  font-size:45px;
   display: flex;
   justify-content: space-between;
+}
+
+.container .other-btn p{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .other-btn p i{
+  margin-right: 10px;
+  font-size: 70px;
+}
+.container .other-btn p:nth-child(2) i{
+  font-size: 60px;
 }

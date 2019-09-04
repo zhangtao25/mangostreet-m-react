@@ -8,7 +8,7 @@ import Msg from '../view/Msg/Msg';
 
 const routes = [
     {
-        path: "/Welcome",
+        path: "/welcome",
         component: Welcome
     },
     {

@@ -36,13 +36,30 @@ class Welcome extends React.Component<Props, State> {
             </div>
           </div>
           <div className="container">
+            <div>
               <img className={'title'} src={xiaohongshu_logo} alt=""/>
               <p className={'desc'}>标记我的生活</p>
-              <div className={'login-btn'} onClick={()=>{this.goLoginPage()}}>邮箱登录</div>
-              <div className={'other-btn'}>
-                <p>微博</p>
-                <p>QQ</p>
+            </div>
+
+            <div>
+              <div className={'login-btn'} onClick={()=>{this.goLoginPage()}}>
+                <i className={'iconfont icon-email'}/>
+                <span>邮箱登录</span>
               </div>
+              <div className={'other-btn'}>
+                <p>
+                  <i className={'iconfont icon-weibo'}/>
+                  <span>微博</span>
+                </p>
+                <p>
+                  <i className={'iconfont icon-qq'}/>
+                  <span>QQ</span>
+                </p>
+              </div>
+            </div>
+
+
+
           </div>
         </div>
     );
