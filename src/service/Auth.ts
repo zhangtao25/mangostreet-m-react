@@ -22,7 +22,19 @@ function reg(data:any) {
     })
 }
 
+function getVcode(data:any) {
+    return new Promise((resolve, reject)=>{
+        console.log(data)
+        axios.get('/api/users/vcode/',{params:data}).then((res:any)=>{
+            resolve(res.data)
+        }).catch(res=>{
+            reject(res)
+        })
+    })
+}
+
 export default {
     login,
-    reg
+    reg,
+    getVcode
 }
