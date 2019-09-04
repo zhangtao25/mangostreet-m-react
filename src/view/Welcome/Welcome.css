@@ -1,0 +1,73 @@
+.welcome{
+  width: 100%;
+  height: 100vh;
+}
+
+/*bg层是窗户*/
+.bg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+/*wrap是两块相同的区域*/
+.bg .wrap{
+  animation: InfiniteShuffling 20s linear infinite;
+}
+/*wrap下有两个相同的div*/
+.bg .wrap div{
+  height: 4500px;
+  overflow: hidden;
+}
+.bg .wrap div ul{
+  column-count: 2;
+  column-gap: 0;
+  width: 100%;
+}
+.bg .wrap div ul li img{
+  width: 100%;
+  display: block;
+}
+
+@keyframes InfiniteShuffling {
+  0%{
+    transform: translateY(-4500px);
+  }
+}
+
+.container{
+  position: absolute;
+  background-color: rgba(0,0,0,.3);
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+}
+.container .title{
+  margin-top: 12vh;
+  font-size: 100px;
+}
+.container .desc{
+  font-size: 40px;
+}
+.container .login-btn{
+  /*font-size: 100px;*/
+  margin-top: 60vh;
+  width: 770px;
+  height: 106px;
+  color: #333;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 106px;
+  background-color: white;
+}
+.container .other-btn{
+  margin-top: 5vh;
+  width: 450px;
+  font-size:40px;
+  display: flex;
+  justify-content: space-between;
+}
