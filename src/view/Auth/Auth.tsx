@@ -49,9 +49,6 @@ class Auth extends React.Component<Props, State> {
                             <span style={{marginTop:'20px'}}>获取验证码</span>
                             <div className={'login-btn'}>注册</div>
                         </div>)}
-
-
-
                 </div>
 
             </div>

@@ -57,9 +57,6 @@ class Welcome extends React.Component<Props, State> {
                 </p>
               </div>
             </div>
-
-
-
           </div>
         </div>
     );
