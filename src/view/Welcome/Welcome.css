@@ -5,22 +5,22 @@
 }
 
 /*bg层是窗户*/
-.bg{
+.welcome .bg{
   position: absolute;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 /*wrap是两块相同的区域*/
-.bg .wrap{
+.welcome .bg .wrap{
   animation: InfiniteShuffling 30s linear infinite;
 }
 /*wrap下有两个相同的div*/
-.bg .wrap div{
+.welcome .bg .wrap div{
   height: 7058px;
   overflow: hidden;
 }
-.bg .wrap div img{
+.welcome .bg .wrap div img{
     width: 100%;
 }
 
@@ -33,7 +33,7 @@
     }
 }
 
-.container{
+.welcome .container{
   position: absolute;
   background-color: rgba(0,0,0,.3);
   z-index: 1000;
@@ -44,7 +44,7 @@
   color: white;
   align-items: center;
 }
-.container>div:nth-child(1){
+.welcome .container>div:nth-child(1){
   position: absolute;
   top: 200px;
   display: flex;
@@ -52,7 +52,7 @@
   align-items: center;
   justify-content: center;
 }
-.container>div:nth-child(2){
+.welcome .container>div:nth-child(2){
   position: absolute;
   bottom: 200px;
   display: flex;
@@ -60,18 +60,18 @@
   align-items: center;
   justify-content: center;
 }
-.container .title{
+.welcome .container .title{
   /*margin-top: 12vh;*/
   /*font-size: 100px;*/
   width: 380px;
 
 }
-.container .desc{
+.welcome .container .desc{
   margin-top: 10px;
   font-size: 45px;
   letter-spacing: 25px;
 }
-.container .login-btn{
+.welcome .container .login-btn{
   /*font-size: 100px;*/
   /*margin-top: 60vh;*/
   width: 850px;
@@ -83,11 +83,11 @@
   justify-content: center;
   align-items: center;
 }
-.container .login-btn i {
+.welcome .container .login-btn i {
   font-size: 70px;
   margin-right: 10px;
 }
-.container .other-btn{
+.welcome .container .other-btn{
   margin-top: 80px;
   width: 500px;
   font-size:45px;
@@ -95,20 +95,15 @@
   justify-content: space-between;
 }
 
-.container .other-btn p{
+.welcome .container .other-btn p{
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.container .other-btn p i{
+.welcome .container .other-btn p i{
   margin-right: 10px;
   font-size: 70px;
 }
-.container .other-btn p:nth-child(2) i{
+.welcome .container .other-btn p:nth-child(2) i{
   font-size: 60px;
-}
-.test111{
-    background-color: #0e80d2;
-    width: 100px;
-    height: 100px;
 }

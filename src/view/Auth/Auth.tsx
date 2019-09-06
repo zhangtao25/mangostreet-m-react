@@ -1,5 +1,5 @@
 import React from 'react';
-import {List, InputItem, Button, ImagePicker, Toast,Icon} from 'antd-mobile'
+import {Toast,Icon} from 'antd-mobile'
 import './Auth.css';
 // @ts-ignore
 import { createForm } from 'rc-form';
@@ -17,7 +17,7 @@ function loadingToast() {
     Toast.info('头像最多上传一张图片，(づ￣3￣)づ╭❤～', 2, undefined, false);
 }
 
-class Auth extends React.Component<Props, State> {
+class AuthX extends React.Component<Props, State> {
     constructor(props:Props) {
         super(props);
         this.state = {
@@ -27,7 +27,28 @@ class Auth extends React.Component<Props, State> {
     switchType(){
         this.setState({actived:this.state.actived==='login'?'reg':'login'})
     }
+    login(){
+        let user_account = this.props.form.getFieldValue('user_account');
+        let user_password = this.props.form.getFieldValue('user_password');
+        AuthService.login({user_account,user_password}).then((res:any)=>{
+            console.log(res)
+        })
+    }
+    reg(){
+        let user_account = this.props.form.getFieldValue('user_account');
+        let vcode = this.props.form.getFieldValue('vcode');
+        AuthService.reg({user_account,vcode}).then((res:any)=>{
+            console.log(res)
+        })
+    }
+    getVcode(){
+        let user_account = this.props.form.getFieldValue('user_account');
+        AuthService.getVcode({user_account}).then((res:any)=>{
+            console.log(res)
+        })
+    }
     render() {
+        const { getFieldProps } = this.props.form;
         return (
             <div className={'auth'}>
                 <div className="header-nav">
@@ -38,16 +59,16 @@ class Auth extends React.Component<Props, State> {
                     {this.state.actived === 'login'?
                         (<div>
                             <p className={'title'}>邮箱密码登录</p>
-                            <input type="text" placeholder={'请填写邮箱'}/>
-                            <input type="text" placeholder={'请填写密码'}/>
-                            <div className={'login-btn'}>登录</div>
+                            <input {...getFieldProps('user_account')} type="text" placeholder={'请填写邮箱'}/>
+                            <input {...getFieldProps('user_password')} type="text" placeholder={'请填写密码'}/>
+                            <div className={'login-btn'} onClick={()=>{this.login()}}>登录</div>
                         </div>):
                         (<div>
                             <p className={'title'}>邮箱密码注册</p>
-                            <input type="text" placeholder={'请填写邮箱'}/>
-                            <input type="text" placeholder={'请填写验证码'}/>
-                            <span style={{marginTop:'20px'}}>获取验证码</span>
-                            <div className={'login-btn'}>注册</div>
+                            <input {...getFieldProps('user_account')} type="text" placeholder={'请填写邮箱'}/>
+                            <input {...getFieldProps('vcode')} type="text" placeholder={'请填写验证码'}/>
+                            <span style={{marginTop:'20px'}} onClick={()=>{this.getVcode()}}>获取验证码</span>
+                            <div className={'login-btn'} onClick={()=>{this.reg()   }}>注册</div>
                         </div>)}
                 </div>
 
@@ -58,5 +79,5 @@ class Auth extends React.Component<Props, State> {
     }
 }
 
-
+const Auth = createForm()(AuthX);
 export default Auth;
