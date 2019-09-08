@@ -10,7 +10,7 @@ axios.interceptors.request.use(config => {
 
 function getUserInfo() {
     return new Promise((resolve, reject)=>{
-        axios.get('/api/users/info/').then((res:any)=>{
+        axios.get(`/api/users/info/`).then((res:any)=>{
             resolve(res.data)
         }).catch(res=>{
             reject(res)

@@ -10,7 +10,8 @@ export interface listArr {
     map(param: (item:any,index:any) => any): any;
 }
 export interface State {
-    listArr: listArr
+    listArr: listArr,
+    info:any
 }
 
 
@@ -22,19 +23,22 @@ class Mine extends React.Component<Props, State> {
                 {name:'关注',num:29},
                 {name:'粉丝',num:3},
                 {name:'获赞与收藏',num:6},
-            ]
+            ],
+            info:{
+
+            }
         };
     }
     render() {
         return (
             <div>
                 <div className="mine-header">
-                    <i className={'iconfont icon-list'}></i>
+                    <i className={'iconfont icon-list'}/>
                     <div>
-                        <p>张涛</p>
-                        <p>小红书号：508270275</p>
+                        <p>{this.state.info.user_nickname}</p>
+                        <p>小红书号：{this.state.info.user_id}</p>
                     </div>
-                    <i className={'iconfont icon-send'}></i>
+                    <i className={'iconfont icon-send'}/>
                 </div>
                 <div className="operate-top">
                     <div className='avatar'>
@@ -64,8 +68,9 @@ class Mine extends React.Component<Props, State> {
         );
     }
     componentDidMount(): void {
-        UserService.getUserInfo().then(res=>{
+        UserService.getUserInfo().then((res:any)=>{
             console.log(res)
+            this.setState({info:res.response})
         })
     }
 }

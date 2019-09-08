@@ -37,7 +37,7 @@ class App extends React.Component<Props, State> {
                     <div className='wrap'>
                         <Switch>
                             {routes.map((route, i) => (<RouteWithSubRoutes routes={route} key={i} {...route} />))}
-                            <Redirect from='/' to='/welcome'/>
+                            <Redirect from='/' to='/home'/>
                         </Switch>
                     </div>
                 </HashRouter>
