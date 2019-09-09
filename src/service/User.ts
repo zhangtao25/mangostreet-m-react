@@ -18,7 +18,26 @@ function getUserInfo() {
     })
 }
 
+function updateUserInfo(data:any) {
+    console.log(data,1111)
+    return new Promise((resolve, reject)=>{
+        let aa = new FormData()
+        if (data.user_nickname !==undefined){
+            aa.append('user_nickname',data.user_nickname)
+        } else if (data.user_sex !==undefined){
+            aa.append('user_sex',data.user_sex)
+        }
+
+        axios.post(`/api/users/updateinfo/`,aa).then((res:any)=>{
+            resolve(res.data)
+        }).catch(res=>{
+            reject(res)
+        })
+    })
+}
+
 
 export default {
-    getUserInfo
+    getUserInfo,
+    updateUserInfo
 }
