@@ -6,6 +6,7 @@ import {Route, Switch} from "react-router";
 import EditAccountInfo from "./EditAccountInfo/EditAccountInfo";
 
 export interface Props {
+    history:any
 }
 export interface listArr {
     [index:number]:any
@@ -13,7 +14,7 @@ export interface listArr {
 }
 export interface State {
     listArr: listArr,
-    info:any
+    info:any,
 }
 
 
@@ -30,6 +31,9 @@ class Mine extends React.Component<Props, State> {
 
             }
         };
+    }
+    goEdite(){
+        this.props.history.push(`/mine/EditAccountInfo`)
     }
     render() {
         return (
@@ -60,7 +64,7 @@ class Mine extends React.Component<Props, State> {
                                 })}
                             </ul>
                             <ul>
-                                <li>编辑资料</li>
+                                <li onClick={()=>{this.goEdite()}}>编辑资料</li>
                                 <li>
                                     <i className={'iconfont icon-set'}/>
                                 </li>
