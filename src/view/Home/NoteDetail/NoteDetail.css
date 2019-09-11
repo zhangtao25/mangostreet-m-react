@@ -1,15 +1,18 @@
-.note{
+.note {
   background-color: white;
   min-height: 100vh;
   width: 100%;
 }
-.note .content{
+
+.note .content {
   padding: 40px;
 }
-.note .content p:nth-child(1){
+
+.note .content p:nth-child(1) {
   font-size: 45px;
   line-height: 90px;
 }
-.note .content p:nth-child(2){
+
+.note .content p:nth-child(2) {
   font-size: 30px;
 }

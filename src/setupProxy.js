@@ -1,5 +1,6 @@
 const proxy = require('http-proxy-middleware');
 const os = require('os');
+
 // 获取本地id
 function getIPAdress() {
   var interfaces = os.networkInterfaces();
@@ -13,20 +14,21 @@ function getIPAdress() {
     }
   }
 }
+
 const port = "8000"
 const myHost = getIPAdress();
 
-module.exports = function(app) {
+module.exports = function (app) {
   app.use(
-      proxy(
-          '/api',
-          {
-            target: `http://${myHost}:${port}`,
-            secure: false,
-            changeOrigin: true,
-            pathRewrite: {
-              "^/api": "/"
-            },
-          })
+    proxy(
+      '/api',
+      {
+        target: `http://${myHost}:${port}`,
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          "^/api": "/"
+        },
+      })
   );
 };

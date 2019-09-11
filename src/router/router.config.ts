@@ -7,34 +7,34 @@ import Mall from '../view/Mall/Mall';
 import Msg from '../view/Msg/Msg';
 
 const routes = [
-    {
-        path: "/welcome",
-        component: Welcome
-    },
-    {
-        path: "/Auth",
-        component: Auth
-    },
-    {
-        path: "/Home",
-        component: Home
-    },
-    {
-        path: "/Mall",
-        component: Mall
-    },
-    {
-        path: "/Add",
-        component: Add
-    },
-    {
-        path: "/Msg",
-        component: Msg
-    },
-    {
-        path: "/Mine",
-        component: Mine
-    }
+  {
+    path: "/welcome",
+    component: Welcome
+  },
+  {
+    path: "/Auth",
+    component: Auth
+  },
+  {
+    path: "/Home",
+    component: Home
+  },
+  {
+    path: "/Mall",
+    component: Mall
+  },
+  {
+    path: "/Add",
+    component: Add
+  },
+  {
+    path: "/Msg",
+    component: Msg
+  },
+  {
+    path: "/Mine",
+    component: Mine
+  }
 ];
 
 export default routes

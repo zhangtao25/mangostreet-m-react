@@ -9,17 +9,39 @@
 }
 
 .iconfont {
-  font-family:"iconfont" !important;
-  font-size:50px;
-  font-style:normal;
+  font-family: "iconfont" !important;
+  font-size: 50px;
+  font-style: normal;
 }
 
-.icon-zhaoxiangji:before{ content: "\e60b" }
+.icon-zhaoxiangji:before {
+  content: "\e60b"
+}
 
-.icon-set:before{ content: "\e610" }
-.icon-list:before{ content: "\e649" }
-.icon-send:before{ content: "\e642" }
-.icon-love:before{ content: "\e602" }
-.icon-email:before{ content: "\e908" }
-.icon-qq:before{ content: "\e60a" }
-.icon-weibo:before{ content: "\e60c" }
+.icon-set:before {
+  content: "\e610"
+}
+
+.icon-list:before {
+  content: "\e649"
+}
+
+.icon-send:before {
+  content: "\e642"
+}
+
+.icon-love:before {
+  content: "\e602"
+}
+
+.icon-email:before {
+  content: "\e908"
+}
+
+.icon-qq:before {
+  content: "\e60a"
+}
+
+.icon-weibo:before {
+  content: "\e60c"
+}

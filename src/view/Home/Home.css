@@ -1,9 +1,10 @@
-.test{
+.test {
   column-count: 2;
   column-gap: 15px;
   width: 100%;
 }
-.home{
+
+.home {
   padding: 0 15px;
 }
 

@@ -1,25 +1,28 @@
 import React from 'react';
+
 // import './index.css';
 
 export interface Props {
 }
+
 interface State {
 }
 
 
 class Mall extends React.Component<Props, State> {
-  constructor(props:Props) {
+  constructor(props: Props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
+
   render() {
     return (
-        <div>
-          我是商场
-        </div>
+      <div>
+        我是商场
+      </div>
     );
   }
+
   componentDidMount(): void {
   }
 }

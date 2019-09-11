@@ -1,4 +1,4 @@
-.welcome{
+.welcome {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -6,37 +6,40 @@
 }
 
 /*bg层是窗户*/
-.welcome .bg{
+.welcome .bg {
   position: absolute;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
+
 /*wrap是两块相同的区域*/
-.welcome .bg .wrap{
+.welcome .bg .wrap {
   animation: InfiniteShuffling 30s linear infinite;
 }
+
 /*wrap下有两个相同的div*/
-.welcome .bg .wrap div{
+.welcome .bg .wrap div {
   height: 7058px;
   overflow: hidden;
 }
-.welcome .bg .wrap div img{
-    width: 100%;
+
+.welcome .bg .wrap div img {
+  width: 100%;
 }
 
 @keyframes InfiniteShuffling {
-  0%{
+  0% {
     transform: translateY(0px);
   }
-    100%{
-        transform: translateY(-7058px);
-    }
+  100% {
+    transform: translateY(-7058px);
+  }
 }
 
-.welcome .container{
+.welcome .container {
   position: absolute;
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(0, 0, 0, .3);
   z-index: 1000;
   width: 100%;
   height: 100%;
@@ -45,7 +48,8 @@
   color: white;
   align-items: center;
 }
-.welcome .container>div:nth-child(1){
+
+.welcome .container > div:nth-child(1) {
   position: absolute;
   top: 200px;
   display: flex;
@@ -53,7 +57,8 @@
   align-items: center;
   justify-content: center;
 }
-.welcome .container>div:nth-child(2){
+
+.welcome .container > div:nth-child(2) {
   position: absolute;
   bottom: 200px;
   display: flex;
@@ -61,18 +66,21 @@
   align-items: center;
   justify-content: center;
 }
-.welcome .container .title{
+
+.welcome .container .title {
   /*margin-top: 12vh;*/
   /*font-size: 100px;*/
   width: 380px;
 
 }
-.welcome .container .desc{
+
+.welcome .container .desc {
   margin-top: 10px;
   font-size: 45px;
   letter-spacing: 25px;
 }
-.welcome .container .login-btn{
+
+.welcome .container .login-btn {
   /*font-size: 100px;*/
   /*margin-top: 60vh;*/
   width: 850px;
@@ -84,27 +92,31 @@
   justify-content: center;
   align-items: center;
 }
+
 .welcome .container .login-btn i {
   font-size: 70px;
   margin-right: 10px;
 }
-.welcome .container .other-btn{
+
+.welcome .container .other-btn {
   margin-top: 80px;
   width: 500px;
-  font-size:45px;
+  font-size: 45px;
   display: flex;
   justify-content: space-between;
 }
 
-.welcome .container .other-btn p{
+.welcome .container .other-btn p {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.welcome .container .other-btn p i{
+
+.welcome .container .other-btn p i {
   margin-right: 10px;
   font-size: 70px;
 }
-.welcome .container .other-btn p:nth-child(2) i{
+
+.welcome .container .other-btn p:nth-child(2) i {
   font-size: 60px;
 }

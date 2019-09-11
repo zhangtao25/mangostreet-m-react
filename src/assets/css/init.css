@@ -2,62 +2,65 @@
 
 /* CSS Document */
 
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,
-h6,pre,form,fieldset,input,p,blockquote,th,td {
-	margin: 0;
-	padding: 0;
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5,
+h6, pre, form, fieldset, input, p, blockquote, th, td {
+  margin: 0;
+  padding: 0;
 }
 
-body{
-	font-size: 14px;
+body {
+  font-size: 14px;
   line-height: 1.5;
-	color: #333;
-	font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-	background: #fff;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  background: #fff;
 }
 
 fieldset,
 img {
-	border: 0;
+  border: 0;
 }
 
 ol,
 ul {
-	list-style: none;
+  list-style: none;
 }
 
 em {
-	font-style: normal;
+  font-style: normal;
 }
 
-input,button,select,textarea {
-	outline: none;
+input, button, select, textarea {
+  outline: none;
 }
 
 textarea {
-	resize: none;
+  resize: none;
 }
+
 p {
-	text-align: justify;
-	text-justify: distribute;
+  text-align: justify;
+  text-justify: distribute;
 }
 
 a {
-	color: blue;
-	text-decoration: none;
+  color: blue;
+  text-decoration: none;
 }
 
 a:hover {
-	color: #f60;
-	text-decoration: none;
+  color: #f60;
+  text-decoration: none;
   cursor: pointer;
 }
-.clear:after{
-	content:"";
-	clear:both;
-	display:block;/*万能清浮动法*/
+
+.clear:after {
+  content: "";
+  clear: both;
+  display: block; /*万能清浮动法*/
 }
-.clear:before{
-	content:"";
-	display:table;
+
+.clear:before {
+  content: "";
+  display: table;
 }
