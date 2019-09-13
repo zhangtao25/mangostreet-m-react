@@ -37,8 +37,47 @@ class ImagePickerExampleX extends React.Component<Props, State> {
     });
   }
 
-  uploadNotes() {
 
+  // 将base64转换成file对象
+  dataURLtoFile (dataurl:any, filename = 'file') {
+    let arr = dataurl.split(',')
+    let mime = arr[0].match(/:(.*?);/)[1]
+    let suffix = mime.split('/')[1]
+    let bstr = atob(arr[1])
+    let n = bstr.length
+    let u8arr = new Uint8Array(n)
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n)
+    }
+    return new File([u8arr], `${filename}.${suffix}`, {type: mime})
+  }
+
+  beforeAvatarUpload(file:any) {
+    return new Promise((resolve, reject)=>{
+      let me = this;
+      let reader = new FileReader();
+      let heizi = {}
+      reader.readAsDataURL(file);
+      reader.onload = function(e) {
+        let img:any = new Image();
+        img.src = this.result;
+        img.onload = function() {
+          let originWidth = img.width;
+          let originHeight = img.height;
+          let canvas = document.createElement("canvas");
+          let context:any = canvas.getContext("2d");
+          let timestamp=new Date().getTime()
+          canvas.width = 512; //压缩后的宽度
+          canvas.height = (originHeight * canvas.width) / originWidth;
+          context.drawImage(img, 0, 0, canvas.width, canvas.height);
+          heizi = me.dataURLtoFile(canvas.toDataURL("image/jpeg"),String(timestamp))
+          resolve(heizi)
+        };
+      };
+    })
+  }
+
+  uploadNotes() {
     let title = this.props.form.getFieldValue('title')
     let desc = this.props.form.getFieldValue('desc')
     if (!title || !desc || this.state.files.length === 0) {
@@ -48,18 +87,20 @@ class ImagePickerExampleX extends React.Component<Props, State> {
     this.setState({activityIndicatorStatus: true})
     var formData: any = new FormData();
     this.state.files.forEach((file: any) => {
-      formData.append('myfiles', file.file, file.file.name);
+      this.beforeAvatarUpload(file.file).then((res:any)=>{
+        formData.append('myfiles', res, res.name);
+      })
     })
     formData.append('title', title);
     formData.append('desc', desc);
-    NoteService.AddNote(formData).then(res => {
-      this.setState({activityIndicatorStatus: false})
-      console.log(this.props)
-      this.props.history.push(`/home`)
-      // this.props.
-    }).catch(res => {
-      this.setState({activityIndicatorStatus: false})
-    })
+    setTimeout(()=>{
+      NoteService.AddNote(formData).then(res => {
+        this.setState({activityIndicatorStatus: false})
+        this.props.history.push(`/home`)
+      }).catch(res => {
+        this.setState({activityIndicatorStatus: false})
+      })
+    },1000)
   }
 
   render() {
