@@ -1,12 +1,14 @@
 import React from 'react';
 import './Mine.css';
-import touxiang from './../../assets/images/touxiang.jpg'
 import UserService from './../../service/User'
 import {Route, Switch} from "react-router";
 import EditAccountInfo from "./EditAccountInfo/EditAccountInfo";
+import UploadAvatar from './UploadAvatar/UploadAvatar'
+import {inject, observer} from "mobx-react";
 
 export interface Props {
-  history: any
+  history: any,
+  store:any
 }
 
 export interface listArr {
@@ -21,6 +23,9 @@ export interface State {
 }
 
 
+// 观察者
+@inject('store')
+@observer
 class Mine extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -35,13 +40,14 @@ class Mine extends React.Component<Props, State> {
   }
 
   goEdite() {
+    this.props.store.changeIsShowMine('none')
     this.props.history.push(`/mine/EditAccountInfo`)
   }
 
   render() {
     return (
       <div className={'mine'}>
-        <div>
+        <div style={{display: this.props.store.isShowMine}}>
           <div className="mine-header">
             <i className={'iconfont icon-list'}/>
             <div>
@@ -52,7 +58,9 @@ class Mine extends React.Component<Props, State> {
           </div>
           <div className="operate-top">
             <div className='avatar'>
-              <img src={touxiang} alt=""/>
+              {this.state.info.user_account?(<img src={`/api/static/users/${this.state.info.user_account}/default.jpg?r=${Math.random()}`} alt=""/>):""}
+
+              <UploadAvatar></UploadAvatar>
             </div>
 
             <div className='right'>

@@ -1,25 +1,36 @@
 import React from 'react';
 // import './index.css';
-import {NavBar, Icon, List, Modal, Toast, Radio} from 'antd-mobile'
+import {NavBar, Icon, List, Modal, Toast, Radio,DatePicker} from 'antd-mobile'
 import UserService from '../../../service/User'
+// @ts-ignore
+import {createForm} from 'rc-form';
+import {inject, observer} from "mobx-react";
 
 export interface Props {
+  form:any,
+  history:any,
+  store:any
 }
 
 interface State {
   modal1: any,
   value2: any,
-  info: any
+  info: any,
+  dpValue:any
 }
 
 
+// 观察者
+@inject('store')
+@observer
 class EditAccountInfo extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
       modal1: false,
       value2: 0,
-      info: {}
+      info: {},
+      dpValue:''
     };
   }
 
@@ -32,8 +43,9 @@ class EditAccountInfo extends React.Component<Props, State> {
     }
     UserService.updateUserInfo(data).then(res => {
       console.log(res)
+      Toast.info('修改成功', 1);
+      window.location.reload()
     })
-
   }
 
   showModal = () => {
@@ -43,14 +55,6 @@ class EditAccountInfo extends React.Component<Props, State> {
     });
   }
   onWrapTouchStart = (e: any) => {
-    // fix touch to scroll background page on iOS
-    // if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
-    //   return;
-    // }
-    // const pNode = closest(e.target, '.am-modal-content');
-    // if (!pNode) {
-    //   e.preventDefault();
-    // }
   }
   onChange = (value2: any) => {
     console.log('checkbox');
@@ -59,11 +63,23 @@ class EditAccountInfo extends React.Component<Props, State> {
     });
   };
 
+  validateDatePicker = (rule:any, date:any, callback:any) => {
+    if (date && date.getMinutes() !== 15) {
+      callback();
+    } else {
+      callback(new Error('15 is invalid'));
+    }
+  }
+  goBack(){
+    this.props.history.goBack();
+    this.props.store.changeIsShowMine('block');
+  }
+
   render() {
     const Item = List.Item;
-    const Brief = Item.Brief;
     const prompt = Modal.prompt;
     const RadioItem = Radio.RadioItem;
+    const {getFieldProps} = this.props.form;
     const data = [
       {value: 0, label: '女'},
       {value: 1, label: '男'},
@@ -74,7 +90,7 @@ class EditAccountInfo extends React.Component<Props, State> {
         <NavBar
           mode="light"
           icon={<Icon type="left"/>}
-          onLeftClick={() => console.log('onLeftClick')}
+          onLeftClick={() => {this.goBack()}}
           rightContent={[
             <Icon key="0" type="search" style={{marginRight: '16px'}}/>,
             <Icon key="1" type="ellipsis"/>,
@@ -98,8 +114,10 @@ class EditAccountInfo extends React.Component<Props, State> {
                   let data = {user_nickname: value}
                   UserService.updateUserInfo(data).then(res => {
                     console.log(res)
+                    Toast.info('修改成功', 1);
+                    window.location.reload()
                   })
-                  Toast.info('修改成功', 1);
+
                   setTimeout(() => {
                     resolve();
                     console.log(`value:${value}`);
@@ -112,8 +130,17 @@ class EditAccountInfo extends React.Component<Props, State> {
           <Item arrow="horizontal" extra={this.state.info.user_sex ? '男' : '女'} onClick={() => {
             this.showModal()
           }}>性别</Item>
-          <Item arrow="horizontal" extra="1995-10-24" onClick={() => {
-          }}>生日</Item>
+          {/*<DatePicker*/}
+            {/*{...getFieldProps('dp', {*/}
+              {/*initialValue: this.state.dpValue,*/}
+              {/*rules: [*/}
+                {/*{ required: true, message: 'Must select a date' },*/}
+                {/*{ validator: this.validateDatePicker },*/}
+              {/*],*/}
+            {/*})}*/}
+          {/*>*/}
+            {/*<List.Item arrow="horizontal">Date</List.Item>*/}
+          {/*</DatePicker>*/}
         </List>
 
         <Modal
@@ -152,4 +179,4 @@ class EditAccountInfo extends React.Component<Props, State> {
   }
 }
 
-export default EditAccountInfo
+export default createForm()(EditAccountInfo)

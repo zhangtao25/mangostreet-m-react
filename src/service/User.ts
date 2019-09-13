@@ -27,6 +27,8 @@ function updateUserInfo(data: any) {
       aa.append('user_nickname', data.user_nickname)
     } else if (data.user_sex !== undefined) {
       aa.append('user_sex', data.user_sex)
+    } else if (data.user_img !== undefined) {
+      aa.append('user_img', data.user_img)
     }
 
     axios.post(`/api/users/updateinfo/`, aa).then((res: any) => {
