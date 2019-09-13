@@ -19,6 +19,8 @@ function reg(data: any) {
   let aa = new FormData()
   aa.append('user_account', data.user_account)
   aa.append('vcode', data.vcode)
+  aa.append('user_password', data.user_password)
+  aa.append('user_nickname', data.user_nickname)
   return new Promise((resolve, reject) => {
     axios.post('/api/users/reg/', aa).then((res: any) => {
       resolve(res.data)

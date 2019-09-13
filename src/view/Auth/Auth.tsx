@@ -48,12 +48,29 @@ class AuthX extends React.Component<Props, State> {
   reg() {
     let user_account = this.props.form.getFieldValue('user_account');
     let vcode = this.props.form.getFieldValue('vcode');
-    AuthService.reg({user_account, vcode}).then((res: any) => {
+    let user_password = this.props.form.getFieldValue('user_password');
+    let user_nickname = this.props.form.getFieldValue('user_nickname');
+    if (!this.checkValue(user_account)||
+      !this.checkValue(vcode)||
+      !this.checkValue(user_password)||
+      !this.checkValue(user_nickname)){
+      Toast.fail('请填写完整', 2, undefined, false);
+      return
+    }
+    AuthService.reg({user_account, vcode,user_nickname,user_password}).then((res: any) => {
       if (res.result) {
         Toast.success(res.response, 2, undefined, false);
         this.switchType()
       }
     })
+  }
+
+  checkValue(val:any){
+    if (val===undefined||val===''){
+      return false
+    } else {
+      return true
+    }
   }
 
   getVcode() {
@@ -98,7 +115,7 @@ class AuthX extends React.Component<Props, State> {
         <div className={'wrap'}>
           {this.state.actived === 'login' ?
             (<div>
-              <p className={'title'}>邮箱密码登录</p>
+              <p className={'title'}>用户登录</p>
               <input {...getFieldProps('user_account')} type="text" placeholder={'请填写邮箱'}/>
               <input {...getFieldProps('user_password')} type="password" placeholder={'请填写密码'}/>
               <div className={'login-btn'} onClick={() => {
@@ -107,8 +124,10 @@ class AuthX extends React.Component<Props, State> {
               </div>
             </div>) :
             (<div>
-              <p className={'title'}>邮箱密码注册</p>
+              <p className={'title'}>用户注册</p>
               <input {...getFieldProps('user_account')} type="toext" placeholder={'请填写邮箱'}/>
+              <input {...getFieldProps('user_password')} type="toext" placeholder={'请填写密码'}/>
+              <input {...getFieldProps('user_nickname')} type="toext" placeholder={'请填写昵称'}/>
               <input {...getFieldProps('vcode')} placeholder={'请填写验证码'}/>
               <p style={{marginTop: '20px'}}>
                 <span onClick={() => {
