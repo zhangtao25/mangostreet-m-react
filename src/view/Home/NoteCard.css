@@ -27,3 +27,7 @@
   width: 58px;
   border-radius: 50%;
 }
+
+.card-bottom .nickname{
+  font-size: 30px;
+}

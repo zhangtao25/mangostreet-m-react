@@ -13,6 +13,8 @@ export interface Props {
   noteId: string
   collects: string
   images: string
+  user_nickname: string
+  user_account:string
 }
 
 interface State {
@@ -32,12 +34,12 @@ class NoteCard extends React.Component<Props, State> {
         <p className={'note-title'}>{this.props.title}</p>
         <div className={'card-bottom'}>
           <div>
-            <img style={{marginRight: '5px'}} src={touxiang} alt=""/>
-            <span>张温柔</span>
+            <img style={{marginRight: '5px'}} src={`/api/static/users/${this.props.user_account}/default.jpg?r=${Math.random()}`} alt=""/>
+            <span className={'nickname'}>{this.props.user_nickname}</span>
           </div>
           <div>
             <i style={{marginRight: '5px'}} className={'iconfont icon-love'}/>
-            <span>234</span>
+            <span>0</span>
           </div>
         </div>
       </div>

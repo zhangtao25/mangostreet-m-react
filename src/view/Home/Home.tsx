@@ -17,22 +17,9 @@ export interface noteData {
   map(param: (item: any, index: number) => any): any;
 }
 
-export interface Item {
-  id: string
-  title: string
-  type: string
-  desc: string
-  likes: number
-  cover: string
-  user_id: string
-  noteId: string
-  collects: number
-  images: string
-}
 
 export interface State {
   noteData: noteData,
-  item: Item,
   isRender: any
 }
 
@@ -44,18 +31,6 @@ class Home extends React.Component<Props, State> {
     super(props);
     this.state = {
       noteData: [],
-      item: {
-        id: "",
-        title: "",
-        type: "",
-        desc: "",
-        likes: 0,
-        cover: "",
-        user_id: "",
-        noteId: "",
-        collects: 0,
-        images: "",
-      },
       isRender: 'block'
     };
   }
@@ -68,7 +43,7 @@ class Home extends React.Component<Props, State> {
   render() {
     return (
       <div className={'home'}>
-        <div className={'test'} style={{display: this.props.store.isShowHome}}>
+        <div className={'wrap'} style={{display: this.props.store.isShowHome}}>
           {this.state.noteData.map((item, index) => {
             return (
               <div style={{backgroundColor: '#f5f5f9', paddingTop: '5px'}} key={index}
@@ -82,6 +57,8 @@ class Home extends React.Component<Props, State> {
                   likes={item.likes}
                   cover={item.cover}
                   user_id={item.user_id}
+                  user_account={item.user_account}
+                  user_nickname={item.user_nickname}
                   noteId={item.noteId}
                   collects={item.collects}
                   images={item.images}/>
