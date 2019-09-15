@@ -1,4 +1,4 @@
-import {ImagePicker, Button, InputItem, TextareaItem, ActivityIndicator, Toast} from 'antd-mobile';
+import {ImagePicker, InputItem, TextareaItem, Toast} from 'antd-mobile';
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 import NoteService from './../../../service/Note'
@@ -12,8 +12,7 @@ export interface Props {
 }
 
 export interface State {
-  files: any,
-  activityIndicatorStatus: any
+  files: any
 }
 
 const data: any = [];
@@ -26,8 +25,7 @@ class ImagePickerExampleX extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      files: data,
-      activityIndicatorStatus: false
+      files: data
     };
   }
 
@@ -67,7 +65,7 @@ class ImagePickerExampleX extends React.Component<Props, State> {
           let canvas = document.createElement("canvas");
           let context:any = canvas.getContext("2d");
           let timestamp=new Date().getTime()
-          canvas.width = 512; //压缩后的宽度
+          canvas.width = 375; //压缩后的宽度
           canvas.height = (originHeight * canvas.width) / originWidth;
           context.drawImage(img, 0, 0, canvas.width, canvas.height);
           heizi = me.dataURLtoFile(canvas.toDataURL("image/jpeg"),String(timestamp))
@@ -84,7 +82,6 @@ class ImagePickerExampleX extends React.Component<Props, State> {
       loadingToast()
       return
     }
-    this.setState({activityIndicatorStatus: true})
     var formData: any = new FormData();
     this.state.files.forEach((file: any) => {
       this.beforeAvatarUpload(file.file).then((res:any)=>{
@@ -95,10 +92,8 @@ class ImagePickerExampleX extends React.Component<Props, State> {
     formData.append('desc', desc);
     setTimeout(()=>{
       NoteService.AddNote(formData).then(res => {
-        this.setState({activityIndicatorStatus: false})
         this.props.history.push(`/home`)
       }).catch(res => {
-        this.setState({activityIndicatorStatus: false})
       })
     },1000)
   }
@@ -108,7 +103,6 @@ class ImagePickerExampleX extends React.Component<Props, State> {
     const {getFieldProps} = this.props.form;
     return (
       <div>
-        <ActivityIndicator toast animating={this.state.activityIndicatorStatus} text="正在加载"/>
         <ImagePicker
           files={files}
           onChange={this.onChange}

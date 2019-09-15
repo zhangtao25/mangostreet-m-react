@@ -1,5 +1,30 @@
 import axios from 'axios'
 
+declare var window: Window & { $store: any }
+
+axios.interceptors.request.use(config => {
+  window.$store.store.changeActivityIndicatorStatus(true)
+  // window.$store
+  if (localStorage.token) {
+    config.headers['Authorization'] = localStorage.token;
+  } else {
+    config.headers['Authorization'] = 'none';
+  }
+  return config
+}, error => {
+  return Promise.reject(error)
+})
+
+axios.interceptors.response.use(config => {
+  window.$store.store.changeActivityIndicatorStatus(false)
+  return config
+}, error => {
+  if (error.response.data.errorCode === 8888) {
+    window.location.href = '/#/welcome';
+  }
+  return Promise.reject(error)
+})
+
 function login(data: any) {
   console.log(data, "登录信息")
   return new Promise((resolve, reject) => {

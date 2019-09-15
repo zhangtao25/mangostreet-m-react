@@ -64,7 +64,7 @@ class UploadAvatar extends React.Component<Props, State> {
           let canvas = document.createElement("canvas");
           let context:any = canvas.getContext("2d");
           let timestamp=new Date().getTime()
-          canvas.width = 512; //压缩后的宽度
+          canvas.width = 256; //压缩后的宽度
           canvas.height = (originHeight * canvas.width) / originWidth;
           context.drawImage(img, 0, 0, canvas.width, canvas.height);
           heizi = me.dataURLtoFile(canvas.toDataURL("image/jpeg"),String(timestamp))

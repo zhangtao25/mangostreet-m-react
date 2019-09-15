@@ -6,6 +6,10 @@ import Add from '../view/Add/Add';
 import Mall from '../view/Mall/Mall';
 import Msg from '../view/Msg/Msg';
 
+import Note from '../view/Home/NoteDetail/NoteDetail'
+import SearchPage from '../view/Home/SearchPage/SearchPage'
+import EditAccountInfo from "../view/Mine/EditAccountInfo/EditAccountInfo";
+
 const routes = [
   {
     path: "/welcome",
@@ -17,7 +21,17 @@ const routes = [
   },
   {
     path: "/Home",
-    component: Home
+    component: Home,
+    routes: [
+      {
+        path: "/Home/Note/:id",
+        component: Note,
+      },
+      {
+        path: "/Home/SearchPage",
+        component: SearchPage,
+      }
+    ]
   },
   {
     path: "/Mall",
@@ -33,7 +47,13 @@ const routes = [
   },
   {
     path: "/Mine",
-    component: Mine
+    component: Mine,
+    routes: [
+      {
+        path: "/Mine/EditAccountInfo",
+        component: EditAccountInfo,
+      }
+    ]
   }
 ];
 

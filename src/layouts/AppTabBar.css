@@ -10,12 +10,14 @@
   display: flex;
   justify-content: space-between;
   background-color: white;
+  border-top: 2px solid #e5e5e5;
 }
 
 .app-tab-bar ul li {
   line-height: 127px;
   width: 210px;
   text-align: center;
+  color: #9d9d9d;
 }
 
 .app-tab-bar ul li:nth-child(3) {
@@ -27,4 +29,9 @@
 .app-tab-bar ul li:nth-child(3) img {
   height: 106px;
   display: block;
+}
+
+.app-tab-bar .activited{
+  color: #333;
+  font-size: 48px;
 }

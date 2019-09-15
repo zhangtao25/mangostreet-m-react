@@ -1,6 +1,6 @@
 import React from 'react';
 // import './index.css';
-import {NavBar, Icon, List, Modal, Toast, Radio,DatePicker} from 'antd-mobile'
+import {NavBar, Icon, List, Modal, Toast, Radio} from 'antd-mobile'
 import UserService from '../../../service/User'
 // @ts-ignore
 import {createForm} from 'rc-form';
@@ -72,14 +72,12 @@ class EditAccountInfo extends React.Component<Props, State> {
   }
   goBack(){
     this.props.history.goBack();
-    this.props.store.changeIsShowMine('block');
   }
 
   render() {
     const Item = List.Item;
     const prompt = Modal.prompt;
     const RadioItem = Radio.RadioItem;
-    const {getFieldProps} = this.props.form;
     const data = [
       {value: 0, label: '女'},
       {value: 1, label: '男'},
@@ -176,6 +174,7 @@ class EditAccountInfo extends React.Component<Props, State> {
       console.log(res)
       this.setState({info: res.response})
     })
+    console.log(this.props)
   }
 }
 

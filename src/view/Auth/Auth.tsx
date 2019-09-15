@@ -1,5 +1,5 @@
 import React from 'react';
-import {Toast, Icon} from 'antd-mobile'
+import {Toast, Icon,InputItem} from 'antd-mobile'
 import './Auth.css';
 // @ts-ignore
 import {createForm} from 'rc-form';
@@ -33,6 +33,10 @@ class AuthX extends React.Component<Props, State> {
 
   login() {
     let user_account = this.props.form.getFieldValue('user_account');
+    if (!this.checkAccount(user_account)){
+      Toast.fail('请填写格式正确的邮箱', 2, undefined, false);
+      return
+    }
     let user_password = this.props.form.getFieldValue('user_password');
     AuthService.login({user_account, user_password}).then((res: any) => {
       console.log(res)
@@ -47,6 +51,10 @@ class AuthX extends React.Component<Props, State> {
 
   reg() {
     let user_account = this.props.form.getFieldValue('user_account');
+    if (!this.checkAccount(user_account)){
+      Toast.fail('请填写格式正确的邮箱', 2, undefined, false);
+      return
+    }
     let vcode = this.props.form.getFieldValue('vcode');
     let user_password = this.props.form.getFieldValue('user_password');
     let user_nickname = this.props.form.getFieldValue('user_nickname');
@@ -66,15 +74,24 @@ class AuthX extends React.Component<Props, State> {
   }
 
   checkValue(val:any){
+
     if (val===undefined||val===''){
       return false
     } else {
       return true
     }
   }
+  checkAccount(val:any){
+    let reg =  /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
+    return reg.test(val)
+  }
 
   getVcode() {
     let user_account = this.props.form.getFieldValue('user_account');
+    if (!this.checkAccount(user_account)){
+      Toast.fail('请填写格式正确的邮箱', 2, undefined, false);
+      return
+    }
     AuthService.getVcode({user_account}).then((res: any) => {
       if (res.result) {
         Toast.info(res.response.vcode, 2, undefined, false);
@@ -91,6 +108,7 @@ class AuthX extends React.Component<Props, State> {
   }
 
   countdown() {
+    this.setState({countdown: 60})
     let timer = setInterval(() => {
       this.setState({countdown: this.state.countdown - 1})
       if (this.state.countdown === 0) {
@@ -116,8 +134,8 @@ class AuthX extends React.Component<Props, State> {
           {this.state.actived === 'login' ?
             (<div>
               <p className={'title'}>用户登录</p>
-              <input {...getFieldProps('user_account')} type="text" placeholder={'请填写邮箱'}/>
-              <input {...getFieldProps('user_password')} type="password" placeholder={'请填写密码'}/>
+              <InputItem {...getFieldProps('user_account')} placeholder={'请填写邮箱'}/>
+              <InputItem  {...getFieldProps('user_password')} type="password" placeholder={'请填写密码'}/>
               <div className={'login-btn'} onClick={() => {
                 this.login()
               }}>登录
@@ -125,10 +143,10 @@ class AuthX extends React.Component<Props, State> {
             </div>) :
             (<div>
               <p className={'title'}>用户注册</p>
-              <input {...getFieldProps('user_account')} type="toext" placeholder={'请填写邮箱'}/>
-              <input {...getFieldProps('user_password')} type="toext" placeholder={'请填写密码'}/>
-              <input {...getFieldProps('user_nickname')} type="toext" placeholder={'请填写昵称'}/>
-              <input {...getFieldProps('vcode')} placeholder={'请填写验证码'}/>
+              <InputItem {...getFieldProps('user_account')} placeholder={'请填写邮箱'}/>
+              <InputItem {...getFieldProps('user_password')} type="password" placeholder={'请填写密码'}/>
+              <InputItem {...getFieldProps('user_nickname')} placeholder={'请填写昵称'}/>
+              <InputItem {...getFieldProps('vcode')} placeholder={'请填写验证码'}/>
               <p style={{marginTop: '20px'}}>
                 <span onClick={() => {
                   this.getVcode()

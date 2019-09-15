@@ -42,7 +42,6 @@ class Note extends React.Component<Props, State> {
       <div className={'note'}>
         <Icon style={{marginTop: '10px', marginBottom: '10px'}} type={'left'} onClick={() => {
           this.props.history.goBack();
-          this.props.store.changeIsShowHome('block');
         }}/>
         <WingBlank>
           <Carousel

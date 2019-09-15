@@ -1,14 +1,14 @@
 import React from 'react';
 import './Mine.css';
 import UserService from './../../service/User'
-import {Route, Switch} from "react-router";
-import EditAccountInfo from "./EditAccountInfo/EditAccountInfo";
+import renderRoutes from './../../router/renderRoutes'
 import UploadAvatar from './UploadAvatar/UploadAvatar'
 import {inject, observer} from "mobx-react";
 
 export interface Props {
   history: any,
-  store:any
+  store:any,
+  route:any
 }
 
 export interface listArr {
@@ -40,11 +40,11 @@ class Mine extends React.Component<Props, State> {
   }
 
   goEdite() {
-    this.props.store.changeIsShowMine('none')
     this.props.history.push(`/mine/EditAccountInfo`)
   }
 
   render() {
+    const {routes} = this.props.route
     return (
       <div className={'mine'}>
         <div style={{display: this.props.store.isShowMine}}>
@@ -86,9 +86,7 @@ class Mine extends React.Component<Props, State> {
             </div>
           </div>
         </div>
-        <Switch>
-          <Route path="/mine/EditAccountInfo" {...this.props} component={EditAccountInfo}/>
-        </Switch>
+        {renderRoutes(routes,false)}
       </div>
     );
   }

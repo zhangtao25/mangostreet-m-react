@@ -1,6 +1,5 @@
 import React from 'react';
 import './NoteCard.css'
-import touxiang from './../../assets/images/notetouxiang.jpg'
 
 export interface Props {
   id: string

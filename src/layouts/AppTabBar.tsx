@@ -12,6 +12,7 @@ interface State {
   selectedTab: string;
   hidden: boolean;
   fullScreen: boolean;
+  activited:any
 }
 
 class AppTabBar extends React.Component<RealProps, State> {
@@ -21,23 +22,33 @@ class AppTabBar extends React.Component<RealProps, State> {
       selectedTab: 'blueTab',
       hidden: false,
       fullScreen: false,
+      activited:'home'
     };
+  }
+
+  goTo(path:any) {
+    this.props.history.push('/'+path)
+    this.setState({activited:path})
   }
 
   render() {
     return (
       <div className={'app-tab-bar'}>
         <ul>
-          <li onClick={() => this.props.history.push('/home')}>首页</li>
-          <li onClick={() => this.props.history.push('/mall')}>商城</li>
-          <li onClick={() => this.props.history.push('/add')}>
-            <img src={addPng} alt=""/>
-          </li>
-          <li onClick={() => this.props.history.push('/msg')}>消息</li>
-          <li onClick={() => this.props.history.push('/mine')}>我</li>
+          <li className={this.state.activited ==='home'?'activited':''} onClick={() => {this.goTo('home')}}>首页</li>
+          <li className={this.state.activited ==='mall'?'activited':''} onClick={() => {this.goTo('mall')}}>商城</li>
+          <li className={this.state.activited ==='add'?'activited':''} onClick={() => {this.goTo('add')}}><img src={addPng} alt=""/></li>
+          <li className={this.state.activited ==='msg'?'activited':''} onClick={() => {this.goTo('msg')}}>消息</li>
+          <li className={this.state.activited ==='mine'?'activited':''} onClick={() => {this.goTo('mine')}}>我</li>
         </ul>
       </div>
     );
+  }
+  componentDidMount(): void {
+    console.log(this.props.location.pathname,111)
+    if (this.props.location.pathname === '/'){
+      this.props.history.push('/home')
+    }
   }
 }
 

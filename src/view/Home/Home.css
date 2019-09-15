@@ -1,12 +1,35 @@
-.home>.wrap {
+.home .wrap {
   column-count: 2;
   column-gap: 15px;
   width: 100%;
-  /*background-color: rebeccapurple;*/
+  background-color: #f5f5f9;
 }
 
 .home {
-  padding: 0 15px;
   background-color: rgb(245, 245, 249);
 }
 
+.am-tabs-tab-bar-wrap{
+  position: fixed;
+  z-index: 2000;
+  width: 100%;
+}
+.home .am-tabs-default-bar{
+  display: flex;
+  justify-content: center;
+}
+.home .am-tabs .am-tabs-default-bar-content{
+  width: 33%;
+  position: relative;
+}
+
+.search-bar{
+  position: fixed;
+  z-index: 3000;
+  width: 100%;
+  top: 130px;
+  box-sizing: border-box;
+}
+.am-tabs-default-bar-underline{
+  width: 50%;
+}
