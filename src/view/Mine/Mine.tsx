@@ -80,7 +80,7 @@ class Mine extends React.Component<Props, State> {
                 }}>编辑资料
                 </li>
                 <li>
-                  <i className={'iconfont icon-set'}/>
+                  <i className={'iconfont icon-set'} onClick={()=>{this.props.history.push('/mine/setting')}}/>
                 </li>
               </ul>
             </div>

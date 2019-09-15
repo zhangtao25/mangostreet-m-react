@@ -19,6 +19,7 @@ axios.interceptors.response.use(config => {
   window.$store.store.changeActivityIndicatorStatus(false)
   return config
 }, error => {
+  window.$store.store.changeActivityIndicatorStatus(false)
   if (error.response.data.errorCode === 8888) {
     window.location.href = '/#/welcome';
   }
