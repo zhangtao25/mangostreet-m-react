@@ -29,7 +29,7 @@ class Welcome extends React.Component<Props, State> {
         <div className={'bg'}>
           <div className="wrap">
             <div>
-              <img src={finaltest} alt=""/>
+              <img src={`/api/static/img/finaltest.jpg}`} alt=""/>
             </div>
             <div>
               <img src={finaltest} alt=""/>
