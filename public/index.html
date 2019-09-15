@@ -39,4 +39,10 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script type='application/javascript' src='./fastclick.js'></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    FastClick.attach(document.body);
+  }, false);
+</script>
 </html>
