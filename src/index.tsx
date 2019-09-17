@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom';
 import './assets/css/init.css'
 import './assets/css/index.css';
 import './assets/css/iconfont.css';
-import './assets/less-config/antd-mobile-config.less';
+import 'antd-mobile/dist/antd-mobile.min.css';
+// import './assets/less-config/antd-mobile-config.less';
 
 import {Provider} from "mobx-react"
 import stores from './store'
