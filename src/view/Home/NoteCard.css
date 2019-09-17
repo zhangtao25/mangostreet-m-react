@@ -15,7 +15,7 @@
 .card-bottom {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 6px;
 }
 
 .card-bottom > div {
@@ -24,10 +24,10 @@
 }
 
 .card-bottom img {
-  width: 58px;
+  width: 20px;
   border-radius: 50%;
 }
 
 .card-bottom .nickname{
-  font-size: 30px;
+  font-size: 10px;
 }

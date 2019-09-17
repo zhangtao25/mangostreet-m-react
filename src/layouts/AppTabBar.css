@@ -14,8 +14,8 @@
 }
 
 .app-tab-bar ul li {
-  line-height: 127px;
-  width: 210px;
+  line-height: 42px;
+  width: 70px;
   text-align: center;
   color: #9d9d9d;
 }
@@ -27,11 +27,11 @@
 }
 
 .app-tab-bar ul li:nth-child(3) img {
-  height: 106px;
+  height: 36px;
   display: block;
 }
 
 .app-tab-bar .activited{
   color: #333;
-  font-size: 48px;
+  font-size: 16px;
 }

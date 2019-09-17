@@ -1,6 +1,12 @@
+.home{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
 .home .wrap {
   column-count: 2;
-  column-gap: 15px;
+  column-gap: 5px;
   width: 100%;
   background-color: #f5f5f9;
 }
@@ -27,7 +33,7 @@
   position: fixed;
   z-index: 3000;
   width: 100%;
-  top: 130px;
+  top: 40px;
   box-sizing: border-box;
 }
 .am-tabs-default-bar-underline{
