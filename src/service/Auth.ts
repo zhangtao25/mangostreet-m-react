@@ -21,7 +21,7 @@ axios.interceptors.response.use(config => {
 }, error => {
   window.$store.store.changeActivityIndicatorStatus(false)
   if (error.response.data.errorCode === 8888) {
-    window.location.href = '/#/welcome';
+    window.location.href = '/welcome';
   }
   return Promise.reject(error)
 })

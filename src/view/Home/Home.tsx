@@ -88,7 +88,8 @@ class Home extends React.Component<Props, State> {
                         user_nickname={item.user_nickname}
                         noteId={item.noteId}
                         collects={item.collects}
-                        images={item.images}/>
+                        images={item.images}
+                        user_img={item.user_img}/>
                     </div>
                   )
                 })}

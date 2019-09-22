@@ -8,6 +8,8 @@
 }
 .home-top{
   overflow-y: auto;
+  /*该属性启动了硬件加速的特性，所以滑动起来会非常流畅；不过会影响性能；经过测试，性能影响忽略不计。*/
+  -webkit-overflow-scrolling: touch;
   height: 100%;
 }
 .home .wrap {

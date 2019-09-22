@@ -1,3 +1,6 @@
+html {
+  font-size: 26.67vw;
+}
 * { touch-action: pan-y; }
 /*使用全局样式样式去掉*/
 html,body,#root,.App,.wrap{

@@ -58,7 +58,7 @@ class Mine extends React.Component<Props, State> {
           </div>
           <div className="operate-top">
             <div className='avatar'>
-              {this.state.info.user_account?(<img src={`/api/static/users/${this.state.info.user_account}/default.jpg?r=${Math.random()}`} alt=""/>):""}
+              {this.state.info.user_account?(<img src={`/api/static/users/${this.state.info.user_account}/${this.state.info.user_img}`} alt=""/>):""}
 
               <UploadAvatar></UploadAvatar>
             </div>

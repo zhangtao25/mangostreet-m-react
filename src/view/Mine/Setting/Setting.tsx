@@ -61,11 +61,7 @@ class Setting extends React.Component<Props, State> {
         >设置</NavBar>
         <List className="my-list">
           <Item arrow="horizontal" onClick={() => {this.goEdite()}}>编辑资料</Item>
-          <Item arrow="horizontal" onClick={() => {}}>1231</Item>
-          <Item arrow="horizontal" onClick={() => {}}>5245</Item>
-          <Item arrow="horizontal" onClick={() => {}}>45345</Item>
-          <Item arrow="horizontal" onClick={() => {}}>45345</Item>
-          <Item arrow="horizontal"        onClick={() =>
+          <Item arrow="horizontal" onClick={() =>
             alert('登出', '您确认要登出么?', [
               { text: '返回', onPress: () => console.log('返回') },
               { text: '确认', onPress: () => new Promise((resolve) => {
