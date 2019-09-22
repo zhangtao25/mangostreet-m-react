@@ -1,15 +1,13 @@
 .push-note-btn{
-  margin-top: 20px;
+  margin-top: 7px;
   background-color: #ff2742;
-  height: 110px;
+  height: 40px;
   width: 90%;
-  border-radius: 60px;
+  border-radius: 20px;
   text-align: center;
-  line-height: 110px;
-  font-size: 40px;
+  line-height: 40px;
+  font-size: 14px;
   color: white;
   margin-left: 50%;
   transform: translate(-50%,0);
-  /*text-align: center;*/
-  /*width: 10px;*/
 }

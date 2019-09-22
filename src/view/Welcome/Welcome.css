@@ -1,7 +1,7 @@
 .welcome {
   width: 100%;
   height: 100%;
-  position: fixed;
+  position: absolute;
   z-index: 1000;
 }
 
@@ -20,7 +20,7 @@
 
 /*wrap下有两个相同的div*/
 .welcome .bg .wrap div {
-  height: 7058px;
+  height: 2352px;
   overflow: hidden;
 }
 
@@ -33,7 +33,7 @@
     transform: translateY(0px);
   }
   100% {
-    transform: translateY(-7058px);
+    transform: translateY(-2352px);
   }
 }
 
@@ -51,7 +51,7 @@
 
 .welcome .container > div:nth-child(1) {
   position: absolute;
-  top: 200px;
+  top: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,7 +60,7 @@
 
 .welcome .container > div:nth-child(2) {
   position: absolute;
-  bottom: 200px;
+  bottom: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,23 +70,23 @@
 .welcome .container .title {
   /*margin-top: 12vh;*/
   /*font-size: 100px;*/
-  width: 380px;
+  width: 130px;
 
 }
 
 .welcome .container .desc {
-  margin-top: 10px;
-  font-size: 45px;
-  letter-spacing: 25px;
+  margin-top: 3px;
+  font-size: 14px;
+  letter-spacing: 8px;
 }
 
 .welcome .container .login-btn {
   /*font-size: 100px;*/
   /*margin-top: 60vh;*/
-  width: 850px;
-  height: 120px;
+  width: 283px;
+  height: 40px;
   color: #333;
-  border-radius: 10px;
+  border-radius: 3px;
   background-color: white;
   display: flex;
   justify-content: center;
@@ -94,14 +94,14 @@
 }
 
 .welcome .container .login-btn i {
-  font-size: 70px;
-  margin-right: 10px;
+  font-size: 22px;
+  margin-right: 3px;
 }
 
 .welcome .container .other-btn {
-  margin-top: 80px;
+  margin-top: 25px;
   width: 500px;
-  font-size: 45px;
+  font-size: 14px;
   display: flex;
   justify-content: space-between;
 }
@@ -113,10 +113,10 @@
 }
 
 .welcome .container .other-btn p i {
-  margin-right: 10px;
-  font-size: 70px;
+  margin-right: 3px;
+  font-size: 22px;
 }
 
 .welcome .container .other-btn p:nth-child(2) i {
-  font-size: 60px;
+  font-size: 20px;
 }

@@ -47,7 +47,7 @@ class Mine extends React.Component<Props, State> {
     const {routes} = this.props.route
     return (
       <div className={'mine'}>
-        <div style={{display: this.props.store.isShowMine}}>
+        <div>
           <div className="mine-header">
             <i className={'iconfont icon-list'}/>
             <div>

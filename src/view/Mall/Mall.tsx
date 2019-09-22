@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import './index.css';
+import './Mall.css';
 
 export interface Props {
 }
@@ -17,7 +17,7 @@ class Mall extends React.Component<Props, State> {
 
   render() {
     return (
-      <div>
+      <div className={'mall'}>
         我是商场
       </div>
     );

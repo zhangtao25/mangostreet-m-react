@@ -11,16 +11,16 @@
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
-  height: 150px;
+  height: 50px;
   color: #999999;
-  padding: 0 120px;
+  padding: 0 40px;
 }
 
 .auth .title {
-  margin-top: 100px;
-  font-size: 90px;
+  margin-top: 33px;
+  font-size: 30px;
   text-align: center;
-  margin-bottom: 120px;
+  margin-bottom: 40px;
 }
 
 .auth .wrap > div {
@@ -30,20 +30,20 @@
 }
 
 .auth .wrap input {
-  font-size: 60px;
-  line-height: 120px;
-  width: 850px;
+  font-size: 20px;
+  line-height: 40px;
+  width: 253px;
   border: none;
   border-bottom: 1px solid #cccccc;
 }
 
 .auth .wrap > div > .login-btn {
-  margin-top: 50px;
-  font-size: 60px;
+  margin-top: 16px;
+  font-size: 20px;
   background-color: #ff2742;
-  width: 850px;
+  width: 253px;
   text-align: center;
   color: white;
-  line-height: 120px;
-  border-radius: 60px;
+  line-height: 40px;
+  border-radius: 20px;
 }

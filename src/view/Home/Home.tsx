@@ -57,7 +57,7 @@ class Home extends React.Component<Props, State> {
 
     return (
       <div className={'home'}>
-        <div className="home-top" style={{display: this.props.store.isShowHome}}>
+        <div className="home-top">
           <div onClick={() => this.goSearchPage()}>
             <SearchBar className={'search-bar'} placeholder="Search" maxLength={8}/>
           </div>

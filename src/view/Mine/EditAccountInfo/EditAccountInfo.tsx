@@ -1,5 +1,5 @@
 import React from 'react';
-// import './index.css';
+import './EditAccountInfo.css'
 import {NavBar, Icon, List, Modal, Toast, Radio} from 'antd-mobile'
 import UserService from '../../../service/User'
 // @ts-ignore
@@ -84,7 +84,7 @@ class EditAccountInfo extends React.Component<Props, State> {
     ];
 
     return (
-      <div>
+      <div className={'edit-account-info'}>
         <NavBar
           mode="light"
           icon={<Icon type="left"/>}

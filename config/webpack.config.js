@@ -108,11 +108,11 @@ module.exports = function(webpackEnv) {
               stage: 3,
             }),
               // 添加px转rem插件
-            require('postcss-pxtorem')({
-              rootValue : 100,
-              selectorBlackList  : [],
-              propList   : ['*']
-            }),
+            // require('postcss-pxtorem')({
+            //   rootValue : 100,
+            //   selectorBlackList  : [],
+            //   propList   : ['*']
+            // }),
             // Adds PostCSS Normalize as the reset css with default options,
             // so that it honors browserslist config in package.json
             // which in turn let's users customize the target behavior as per their needs.

@@ -53,7 +53,7 @@ class Setting extends React.Component<Props, State> {
     const Item = List.Item;
     const alert = Modal.alert;
     return (
-      <div>
+      <div className={'setting'}>
         <NavBar
           mode="light"
           icon={<Icon type="left" />}

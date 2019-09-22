@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import './index.css';
+import './Msg.css';
 
 export interface Props {
 }
@@ -17,7 +17,7 @@ class Msg extends React.Component<Props, State> {
 
   render() {
     return (
-      <div>
+      <div className={'msg'}>
         我是消息
       </div>
     );

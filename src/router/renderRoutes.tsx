@@ -12,19 +12,6 @@ const renderRoutes = (routes:any, authed:any, authPath = '/login', extraProps = 
         exact={route.exact}
         strict={route.strict}
         render={(props) => {
-          // 控制Home页显隐藏
-          if (route.path === '/Home'){
-            window.$store.store.changeIsShowHome('block')
-          } else {
-            window.$store.store.changeIsShowHome('none')
-          }
-
-          if (route.path === '/Mine'){
-            window.$store.store.changeIsShowMine('block')
-          } else {
-            window.$store.store.changeIsShowMine('none')
-          }
-
 
           if (!route.requiresAuth || authed || route.path === authPath) {
             return <route.component {...props} {...extraProps} route={route} />
