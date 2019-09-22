@@ -1,0 +1,12 @@
+.upload-avatar{
+  position: absolute;
+  top: 0;
+}
+.upload-btn{
+  background-color: skyblue;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  /*background-color: rgba(0,0,0,0);*/
+  opacity: 0;
+}

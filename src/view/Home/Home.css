@@ -1,0 +1,42 @@
+.home{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+.home .wrap {
+  column-count: 2;
+  column-gap: 5px;
+  width: 100%;
+  background-color: #f5f5f9;
+}
+
+.home {
+  background-color: rgb(245, 245, 249);
+}
+
+.am-tabs-tab-bar-wrap{
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+}
+.home .am-tabs-default-bar{
+  display: flex;
+  justify-content: center;
+}
+.home .am-tabs .am-tabs-default-bar-content{
+  width: 33%;
+  position: relative;
+}
+
+.search-bar{
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  top: 40px;
+  box-sizing: border-box;
+}
+.am-tabs-default-bar-underline{
+  width: 50%;
+}

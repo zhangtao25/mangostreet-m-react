@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 1126423 */
+  src: url('//at.alicdn.com/t/font_1126423_i9dcrp9ug.eot');
+  src: url('//at.alicdn.com/t/font_1126423_i9dcrp9ug.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1126423_i9dcrp9ug.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1126423_i9dcrp9ug.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1126423_i9dcrp9ug.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1126423_i9dcrp9ug.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+}
+
+.icon-zhaoxiangji:before {
+  content: "\e60b"
+}
+
+.icon-set:before {
+  content: "\e610"
+}
+
+.icon-list:before {
+  content: "\e649"
+}
+
+.icon-send:before {
+  content: "\e642"
+}
+
+.icon-love:before {
+  content: "\e602"
+}
+
+.icon-email:before {
+  content: "\e908"
+}
+
+.icon-qq:before {
+  content: "\e60a"
+}
+
+.icon-weibo:before {
+  content: "\e60c"
+}

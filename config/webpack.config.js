@@ -40,6 +40,10 @@ const useTypeScript = fs.existsSync(paths.appTsConfig);
 // style files regexes
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
+// ***Allen Zhang***
+const lessRegex = /\.less$/;
+const lessModuleRegex = /\.module\.less$/;
+// ***Allen Zhang***
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
@@ -80,6 +84,12 @@ module.exports = function(webpackEnv) {
         loader: require.resolve('css-loader'),
         options: cssOptions,
       },
+        // ***Allen Zhang***
+      {
+        loader: require.resolve('less-loader'),
+        options: {...cssOptions,javascriptEnabled:true},
+      },
+        // ***Allen Zhang***
       {
         // Options for PostCSS as we reference these options twice
         // Adds vendor prefixing based on your specified browser support in
@@ -97,6 +107,12 @@ module.exports = function(webpackEnv) {
               },
               stage: 3,
             }),
+              // 添加px转rem插件
+            // require('postcss-pxtorem')({
+            //   rootValue : 100,
+            //   selectorBlackList  : [],
+            //   propList   : ['*']
+            // }),
             // Adds PostCSS Normalize as the reset css with default options,
             // so that it honors browserslist config in package.json
             // which in turn let's users customize the target behavior as per their needs.
@@ -308,7 +324,7 @@ module.exports = function(webpackEnv) {
               options: {
                 formatter: require.resolve('react-dev-utils/eslintFormatter'),
                 eslintPath: require.resolve('eslint'),
-                
+
               },
               loader: require.resolve('eslint-loader'),
             },
@@ -341,7 +357,7 @@ module.exports = function(webpackEnv) {
                 customize: require.resolve(
                   'babel-preset-react-app/webpack-overrides'
                 ),
-                
+
                 plugins: [
                   [
                     require.resolve('babel-plugin-named-asset-import'),
@@ -380,7 +396,7 @@ module.exports = function(webpackEnv) {
                 ],
                 cacheDirectory: true,
                 cacheCompression: isEnvProduction,
-                
+
                 // If an error happens in a package, it's possible to be
                 // because it was compiled. Thus, we don't want the browser
                 // debugger to show the original code. Instead, the code
@@ -419,6 +435,26 @@ module.exports = function(webpackEnv) {
                 getLocalIdent: getCSSModuleLocalIdent,
               }),
             },
+              // ***Allen Zhang***
+            {
+              test: lessRegex,
+              exclude: lessModuleRegex,
+              use: getStyleLoaders({
+                importLoaders: 1,
+                sourceMap: isEnvProduction && shouldUseSourceMap,
+              }),
+              sideEffects: true,
+            },
+            {
+              test: lessModuleRegex,
+              use: getStyleLoaders({
+                importLoaders: 1,
+                sourceMap: isEnvProduction && shouldUseSourceMap,
+                modules: true,
+                getLocalIdent: getCSSModuleLocalIdent,
+              }),
+            },
+              // ***Allen Zhang***
             // Opt-in support for SASS (using .scss or .sass extensions).
             // By default we support SASS Modules with the
             // extensions .module.scss or .module.sass

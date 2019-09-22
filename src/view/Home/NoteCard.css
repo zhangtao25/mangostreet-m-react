@@ -1,0 +1,33 @@
+.note-card {
+  background-color: #fefefe;
+  display: inline-block;
+  width: 100%;
+}
+
+.note-card img {
+  width: 100%;
+}
+
+.note-title {
+  padding: 0 10px
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px;
+}
+
+.card-bottom > div {
+  display: flex;
+  align-items: center;
+}
+
+.card-bottom img {
+  width: 20px;
+  border-radius: 50%;
+}
+
+.card-bottom .nickname{
+  font-size: 10px;
+}

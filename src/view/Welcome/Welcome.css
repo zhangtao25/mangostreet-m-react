@@ -1,0 +1,122 @@
+.welcome {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1000;
+}
+
+/*bg层是窗户*/
+.welcome .bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/*wrap是两块相同的区域*/
+.welcome .bg .wrap {
+  animation: InfiniteShuffling 30s linear infinite;
+}
+
+/*wrap下有两个相同的div*/
+.welcome .bg .wrap div {
+  height: 2352px;
+  overflow: hidden;
+}
+
+.welcome .bg .wrap div img {
+  width: 100%;
+}
+
+@keyframes InfiniteShuffling {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-2352px);
+  }
+}
+
+.welcome .container {
+  position: absolute;
+  background-color: rgba(0, 0, 0, .3);
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+}
+
+.welcome .container > div:nth-child(1) {
+  position: absolute;
+  top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome .container > div:nth-child(2) {
+  position: absolute;
+  bottom: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome .container .title {
+  /*margin-top: 12vh;*/
+  /*font-size: 100px;*/
+  width: 130px;
+
+}
+
+.welcome .container .desc {
+  margin-top: 3px;
+  font-size: 14px;
+  letter-spacing: 8px;
+}
+
+.welcome .container .login-btn {
+  /*font-size: 100px;*/
+  /*margin-top: 60vh;*/
+  width: 283px;
+  height: 40px;
+  color: #333;
+  border-radius: 3px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome .container .login-btn i {
+  font-size: 22px;
+  margin-right: 3px;
+}
+
+.welcome .container .other-btn {
+  margin-top: 25px;
+  width: 500px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.welcome .container .other-btn p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome .container .other-btn p i {
+  margin-right: 3px;
+  font-size: 22px;
+}
+
+.welcome .container .other-btn p:nth-child(2) i {
+  font-size: 20px;
+}

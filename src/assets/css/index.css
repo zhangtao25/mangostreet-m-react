@@ -1,0 +1,6 @@
+* { touch-action: pan-y; }
+/*使用全局样式样式去掉*/
+html,body,#root,.App,.wrap{
+  width: 100%;
+  height: 100%;
+}
