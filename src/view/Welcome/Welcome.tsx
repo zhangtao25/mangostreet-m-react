@@ -1,7 +1,6 @@
 import React from 'react';
 import './Welcome.css';
 import xiaohongshu_logo from '../../assets/images/xiaohongshu_logo.png'
-import finaltest from '../../assets/welcome_bg/finaltest.jpg'
 
 
 export interface Props {

@@ -1,20 +1,18 @@
 import React from 'react';
 import NoteService from './../../../service/Note'
 import './NoteDetail.css'
-import {RouteComponentProps} from 'react-router-dom'
 import {Carousel, WingBlank, Icon} from 'antd-mobile';
 import {observer, inject} from 'mobx-react';
 
-export interface Propsx {
+export interface Props {
   match: any,
-  store: any
+  store: any,
+  history:any
 }
 
-type Props = Propsx & RouteComponentProps
 
 export interface Data {
   [index: number]: any,
-
   map(param: (item: any, index: number) => any): any;
 }
 
@@ -40,9 +38,16 @@ class Note extends React.Component<Props, State> {
   render() {
     return (
       <div className={'note'}>
-        <Icon style={{marginTop: '10px', marginBottom: '10px'}} type={'left'} onClick={() => {
-          this.props.history.goBack();
-        }}/>
+        <div className="nav-bar">
+          <div className={'l'}>
+            <Icon type="left"  style={{height:'100%'}} onClick={() => {this.props.history.goBack();}}/>
+            <img src={`/api/static/users/${this.state.item.user_account}/${this.state.item.user_img}`} alt=""/>
+            <span className={'nickname'}>{this.state.item.user_nickname}</span>
+          </div>
+          <div className={'r'}>
+            <span>关注</span>
+          </div>
+        </div>
         <WingBlank>
           <Carousel
             autoplay={false}
@@ -69,6 +74,7 @@ class Note extends React.Component<Props, State> {
         <div className="content">
           <p>{this.state.item.title}</p>
           <p>{this.state.item.desc}</p>
+          <p>8-15</p>
         </div>
       </div>
     );

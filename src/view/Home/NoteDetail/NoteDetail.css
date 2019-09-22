@@ -13,9 +13,52 @@
 
 .note .content p:nth-child(1) {
   font-size: 14px;
-  line-height: 28px;
+  font-weight: 500;
 }
 
 .note .content p:nth-child(2) {
   font-size: 12px;
+  margin-top: 10px;
+}
+.note .content p:nth-child(3) {
+  font-size: 12px;
+  margin-top: 10px;
+  color: #ccc;
+}
+.note .nav-bar{
+  height: 52px;
+  display: flex;
+  align-items: center;
+  line-height: 52px;
+  justify-content: space-between;
+  padding: 0 18px;
+}
+.note .nav-bar .l {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.note .nav-bar .l img{
+  margin-left: 10px;
+  margin-right: 5px;
+  width:32px;
+  height:32px;
+  border-radius:50%
+}
+
+.note .nav-bar .r span{
+  display: block;
+  width: 45px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  border: 1px solid rgb(255, 39, 66);
+  color: rgb(255, 39, 66);
+  border-radius: 14px;
+}
+
+.note .am-wingblank.am-wingblank-lg {
+  margin-left: 0;
+  margin-right: 0;
 }
