@@ -18,6 +18,7 @@ function getIPAdress() {
 const port = "8000"
 // 本地没有django服务时打开aliyun注释
 const aliyun = "114.55.145.3";
+
 const myHost = aliyun || getIPAdress();
 
 module.exports = function (app) {
