@@ -47,6 +47,11 @@ class Home extends React.Component<Props, State> {
     this.props.history.push(`/home/searchpage`)
     // this.props.store.changeIsShowHome('none')
   }
+  nextPage(){
+    NoteService.getNotes(2).then((res: any) => {
+      this.setState({noteData: res})
+    })
+  }
 
   render() {
     const {routes} = this.props.route
@@ -93,6 +98,8 @@ class Home extends React.Component<Props, State> {
                     </div>
                   )
                 })}
+
+                <button onClick={()=>{this.nextPage()}}>下一页</button>
               </div>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' ,paddingTop:'88px'}}>
@@ -107,7 +114,7 @@ class Home extends React.Component<Props, State> {
   }
 
   componentDidMount(): void {
-    NoteService.getNotes().then((res: any) => {
+    NoteService.getNotes(1).then((res: any) => {
       this.setState({noteData: res})
     })
   }

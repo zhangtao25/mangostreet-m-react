@@ -29,8 +29,10 @@ class NoteCard extends React.Component<Props, State> {
   render() {
     return (
       <div className={'note-card'}>
+        {/*<img className={'note-cover'}*/}
+        {/*     src={'/api/static/notes/' + this.props.id + '/cover/' + this.props.cover.split(",")[0]} alt=""/>*/}
         <img className={'note-cover'}
-             src={'/api/static/notes/' + this.props.id + '/cover/' + this.props.cover.split(",")[0]} alt=""/>
+             src={`https://ci.xiaohongshu.com/${this.props.cover.split(",")[0].replace('http://192.168.0.100:8000/notes/','')}`} alt=""/>
         <p className={'note-title'}>{this.props.title}</p>
         <div className={'card-bottom'}>
           <div>

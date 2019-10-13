@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-function getNotes() {
+function getNotes(pageIndex:any) {
   return new Promise((resolve, reject) => {
-    axios.get('/api/notes/all/').then((res: any) => {
-      resolve(res.data)
+    axios.get('/api/notes/?page='+pageIndex).then((res: any) => {
+      resolve(res.data.results)
     }).catch(res => {
       reject(res)
     })
